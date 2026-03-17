@@ -40,13 +40,29 @@ text-center lg:text-left order-0 lg:self-start lg:mt-[15px]"
           {/* Right Image with Glass Badges */}
           <FadeIn
             direction="left"
-            className="relative h-[620px] lg:h-[650px] w-full flex lg:justify-end justify-center"
+            className="relative h-[620px] lg:h-[650px] w-full flex lg:justify-end justify-center items-center"
           >
-            {/* IMAGE CONTAINER */}
+            {/* 1. MOVED OUTSIDE: CLIENT SATISFACTION BADGE */}
+            {/* This is now outside the overflow-hidden container */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 1 }}
+              className="absolute bottom-32 left-10 lg:left-12 z-10
+      bg-[#141414]/35 backdrop-blur-md border border-white/2
+      pl-3 pr-5 py-2 rounded-full flex items-center gap-3 shadow-2xl"
+            >
+              <div className="w-2 h-2 bg-white rounded-full"></div>
+                <span className="text-white text-sm text-[17px] font-medium text-neutral-300">
+                Client satisfaction
+              </span>
+            </motion.div>
+
+            {/* 2. IMAGE CONTAINER (Has overflow-hidden) */}
             <div
               className="relative w-[88%] lg:w-[85%] h-full overflow-hidden
-  rounded-t-[320px] rounded-b-[40px]
-  border border-white/10 shadow-[0_40px_80px_rgba(0,0,0,0.6)]"
+      rounded-t-[320px] rounded-b-[40px]
+      border border-white/10 shadow-[0_40px_80px_rgba(0,0,0,0.6)]"
             >
               <img
                 src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1400&q=80"
@@ -62,12 +78,17 @@ text-center lg:text-left order-0 lg:self-start lg:mt-[15px]"
                 initial={{ opacity: 0, x: -30 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.6 }}
-                className="absolute top-1/2 -translate-y-1/2 left-6
-      bg-white/20 backdrop-blur-xl border border-white/30
-      px-5 py-2.5 rounded-full flex items-center gap-2 shadow-2xl"
+                className="absolute top-13 -translate-y-1/2 left-38 
+             bg-[#141414]/35 backdrop-blur-md border border-white/2
+             pl-3 pr-5 py-2 rounded-full flex items-center gap-3 shadow-2xl"
               >
-                <div className="w-2 h-2 bg-white rounded-full"></div>
-                <span className="text-white text-sm font-medium">
+                {/* Nested Indicator Dot from the image */}
+                <div className="flex items-center justify-center w-6 h-6 rounded-full bg-white/10">
+                  <div className="w-2 h-2 bg-white rounded-full shadow-[0_0_6px_rgba(255,255,255,0.7)]" />
+                </div>
+
+                {/* Exact 17px Font Size */}
+                <span className="text-white/90 text-[17px] font-medium tracking-tight leading-none">
                   Smart planning
                 </span>
               </motion.div>
@@ -77,26 +98,14 @@ text-center lg:text-left order-0 lg:self-start lg:mt-[15px]"
                 initial={{ opacity: 0, x: 30 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.8 }}
-                className="absolute top-1/2 -translate-y-1/2 right-6
-      bg-white/20 backdrop-blur-xl border border-white/30
-      px-5 py-2.5 rounded-full flex items-center gap-2 shadow-2xl"
+                className="absolute top-1/2 -translate-y-1/2 right-5
+             bg-[#141414]/35 backdrop-blur-md border border-white/2
+             pl-3 pr-5 py-2 rounded-full flex items-center gap-3 shadow-2xl"
               >
                 <div className="w-2 h-2 bg-white rounded-full"></div>
-                <span className="text-white text-sm font-medium">
+                <span className="text-white text-sm text-[17px] font-medium text-neutral-300">
                   Seamless process
                 </span>
-              </motion.div>
-
-              {/* CLIENT TEXT */}
-              <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 1 }}
-                className="absolute bottom-28 left-6
-      bg-white/20 backdrop-blur-xl border border-white/30
-      px-5 py-2 rounded-full text-white text-sm shadow-xl"
-              >
-                Client satisfaction
               </motion.div>
 
               {/* RATING CARD */}
@@ -104,23 +113,32 @@ text-center lg:text-left order-0 lg:self-start lg:mt-[15px]"
                 initial={{ opacity: 0, y: 40 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 1.2 }}
-                className="absolute bottom-8 right-6
-      bg-white/20 backdrop-blur-2xl border border-white/30
-      p-6 rounded-[30px] shadow-2xl w-[220px]"
+                className="absolute bottom-6 right-6 
+    bg-[#141414]/35 backdrop-blur-[5px] border border-white/10 
+    py-5 px-3.5 rounded-[30px] shadow-2xl w-fit flex flex-col items-center"
               >
-                <div className="flex -space-x-3 mb-3">
+                {/* Avatars Container */}
+                <div className="flex -space-x-3 mb-3 ml-3">
                   {[1, 2, 3, 4].map((i) => (
                     <img
                       key={i}
                       src={`https://i.pravatar.cc/100?img=${i + 20}`}
-                      className="w-10 h-10 rounded-full border-2 border-white/40"
+                      className="w-10 h-10 rounded-full "
                     />
                   ))}
                 </div>
 
-                <div className="flex text-white gap-1 mb-1">⭐⭐⭐⭐⭐</div>
-
-                <p className="text-white text-sm opacity-90">
+                {/* Stars */}
+                <div className="flex gap-2 mb-5">
+                  {[...Array(5)].map((_, i) => (
+                    <Star
+                      key={i}
+                      size={15}
+className="fill-white text-white opacity-90"                    />
+                  ))}
+                </div>
+                {/* Text */}
+                <p className="text-white text-sm text-[17px] font-medium text-neutral-300 opacity-90 text-center leading-tight">
                   Rated 5 Stars by <br /> 2k+ happy clients
                 </p>
               </motion.div>
