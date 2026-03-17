@@ -1,7 +1,16 @@
 import FadeIn from "@/utils/common";
 import { motion, AnimatePresence } from "framer-motion";
-import { Star } from "lucide-react";
+import { Star, ShieldCheck, Zap, Award, Crown, Cpu } from "lucide-react";
 
+// In logos ko aap bad mein apni image files se replace kar sakte hain
+const LOGOS = [
+  { id: 1, icon: <ShieldCheck size={24} />, name: "SecureBuild" },
+  { id: 2, icon: <Zap size={24} />, name: "FastFrame" },
+  { id: 3, icon: <Award size={24} />, name: "EliteHome" },
+  { id: 4, icon: <Crown size={24} />, name: "RoyalSpace" },
+  { id: 5, icon: <Cpu size={24} />, name: "SmartTech" },
+  { id: 6, icon: <Zap size={24} />, name: "VibeDecor" },
+];
 const HeroSection = () => {
   return (
     <section className="pt-40 pb-20 overflow-hidden">
@@ -35,6 +44,37 @@ text-center lg:text-left order-0 lg:self-start lg:mt-[15px]"
                 View services
               </button>
             </div>
+            {/* --- LOGO SLIDER SECTION --- */}
+            {/* --- AUTO SLIDING LOGOS --- */}
+            <div className="w-full lg:max-w-md mt-15">
+              <div className="relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_20%,white_80%,transparent)]">
+                <motion.div
+                  className="flex gap-12 items-center"
+                  animate={{ x: ["0%", "-50%"] }}
+                  transition={{
+                    duration: 25,
+                    repeat: Infinity,
+                    ease: "linear",
+                  }}
+                  style={{ width: "fit-content" }}
+                >
+                  {/* Duplicating logos for seamless loop */}
+                  {[...LOGOS, ...LOGOS].map((logo, index) => (
+                    <div
+                      key={index}
+                      className="flex items-center gap-2 flex-shrink-0 group"
+                    >
+                      <div className="text-white/30 group-hover:text-white/70 transition-colors">
+                        {logo.icon}
+                      </div>
+                      <span className="text-lg font-bold text-white/20 group-hover:text-white/60 transition-colors tracking-tight">
+                        {logo.name}
+                      </span>
+                    </div>
+                  ))}
+                </motion.div>
+              </div>
+            </div>
           </FadeIn>
 
           {/* Right Image with Glass Badges */}
@@ -53,7 +93,7 @@ text-center lg:text-left order-0 lg:self-start lg:mt-[15px]"
       pl-3 pr-5 py-2 rounded-full flex items-center gap-3 shadow-2xl"
             >
               <div className="w-2 h-2 bg-white rounded-full"></div>
-                <span className="text-white text-sm text-[17px] font-medium text-neutral-300">
+              <span className="text-white text-sm text-[17px] font-medium text-neutral-300">
                 Client satisfaction
               </span>
             </motion.div>
@@ -134,7 +174,8 @@ text-center lg:text-left order-0 lg:self-start lg:mt-[15px]"
                     <Star
                       key={i}
                       size={15}
-className="fill-white text-white opacity-90"                    />
+                      className="fill-white text-white opacity-90"
+                    />
                   ))}
                 </div>
                 {/* Text */}
