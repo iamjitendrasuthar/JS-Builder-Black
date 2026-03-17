@@ -10,9 +10,9 @@
     "module": "esnext",
     "moduleResolution": "bundler",
     "resolveJsonModule": true,
+    "isolatedModules": true,
     "noImplicitAny": false,
     "forceConsistentCasingInFileNames": false,
-    "isolatedModules": true,
     "jsx": "react-jsx",
     "incremental": true,
     "plugins": [
