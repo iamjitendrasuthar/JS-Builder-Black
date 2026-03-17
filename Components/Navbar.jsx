@@ -63,7 +63,7 @@ const Navbar = ({ setCurrentPage }) => {
             exit={{ opacity: 0, height: 0 }}
             className="md:hidden bg-[#111] border-b border-white/10 overflow-hidden"
           >
-            <div className="px-4 pt-2 pb-6 space-y-1">
+            <div className="px-4 pt-4 pb-8 flex flex-col items-center space-y-2">
               {links.map((link) => (
                 <button
                   key={link}
@@ -71,17 +71,18 @@ const Navbar = ({ setCurrentPage }) => {
                     setIsOpen(false);
                     setCurrentPage("home");
                   }}
-                  className="block w-full text-left px-3 py-3 text-[17px] font-medium text-neutral-300 hover:text-white hover:bg-white/5 rounded-md cursor-pointer"
+                  className="w-full text-center py-4 text-white text-sm text-[17px] font-medium text-neutral-300 hover:text-white hover:bg-white/5 rounded-xl transition-all cursor-pointer"
                 >
                   {link}
                 </button>
               ))}
+
               <button
                 onClick={() => {
                   setIsOpen(false);
                   setCurrentPage("contact");
                 }}
-                className="block w-full mt-4 px-3 py-3 text-center text-base font-medium bg-white text-black rounded-full cursor-pointer hover:bg-neutral-200 transition-colors"
+                className="w-full max-w-[280px] mt-6 px-6 py-4 text-center text-base font-semibold bg-white text-black rounded-full cursor-pointer hover:bg-neutral-200 transition-colors shadow-lg"
               >
                 Contact us
               </button>
