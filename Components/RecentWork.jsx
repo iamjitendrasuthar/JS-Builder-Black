@@ -7,13 +7,13 @@ const RecentWork = () => {
       desc: "A complete transformation of a dated residence into a bright, open farmhouse-style home. We redesigned the layout for better flow, introduced warm-toned wood, modern fixtures, and created a harmonious blend of rustic charm.",
       tags: ["Residential Renovation", "Austin, Texas"],
       img: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=1000&q=80",
-      shape: "rounded-t-[200px] rounded-b-3xl",
+      shape: "rounded-t-full rounded-b-3xl",
     },
     {
       title: "Modern Living Room Redesign",
       desc: "A compact city living room was completely reimagined to enhance comfort, maximize light, and express modern elegance. Through smart furnishing, subtle color tones, and thoughtful textures, we created a welcoming, cozy interior.",
       tags: ["Interior Design", "Chicago, Illinois"],
-      img: "https://images.unsplash.com/photo-1583847268964-b28ce8f25f15?w=1000&q=80",
+      img: "https://images.unsplash.com/photo-1630585308572-f53438fc684f?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDN8fHxlbnwwfHx8fHw%3D",
       shape: "rounded-t-full rounded-b-3xl",
     },
   ];
