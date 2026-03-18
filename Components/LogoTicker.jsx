@@ -51,7 +51,7 @@ const ShapedImageWrapper = ({ item }) => {
 
 const LogoTicker = () => {
   return (
-    <section className="py-16 md:py-24 bg-[#0a0a0a] overflow-hidden">
+    <section className="py-16 md:py-24 bg-[#141414] overflow-hidden">
       {/* ✅ HERO MATCHED WIDTH: max-w-7xl */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         {/* Section Header (Optional but good for consistency) */}

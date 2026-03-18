@@ -21,7 +21,7 @@ const TestimonialCard = ({ quote, author, role, avatar }) => {
 
       {/* Client Message */}
       <p className="text-neutral-300 text-lg md:text-xl leading-[1.6] mb-10 font-medium italic min-h-[100px]">
-        "{quote}"
+        {quote}
       </p>
 
       {/* Author Info */}
