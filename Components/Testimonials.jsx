@@ -10,7 +10,13 @@ const TestimonialCard = ({ quote, author, role, avatar }) => {
   return (
     <motion.div
       whileHover={{ y: -5, borderColor: "rgba(255,255,255,0.2)" }}
-      className="flex-shrink-0 w-[280px] md:w-[500px] p-6 md:p-10 rounded-[2rem] bg-[#121212]  mx-3 flex flex-col items-center text-center transition-colors duration-500"
+      className="flex-shrink-0 
+w-full max-w-[340px] 
+md:max-w-[500px] 
+p-6 md:p-10 
+rounded-[2rem] bg-[#121212] mx-auto
+flex flex-col items-center text-center 
+transition-colors duration-500"
     >
       {/* Star Rating */}
       <div className="flex gap-1 mb-6">
@@ -77,13 +83,6 @@ const Testimonials = () => {
       role: "Interior Architect",
       avatar: "https://i.pravatar.cc/150?u=sarah",
     },
-    {
-      quote:
-        "Materials aur lighting ka selection sab kuch badal deta hai. Yeh hamare ghar ko ek luxury feel aur naya mod deta hai.",
-      author: "Michael Chen",
-      role: "Residential Client",
-      avatar: "https://i.pravatar.cc/150?u=michael",
-    },
   ];
 
   // Doubled array for infinite scrolling effect
@@ -132,37 +131,10 @@ const Testimonials = () => {
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
-        {/* Left Fade */}
-        <div
-          className="hidden lg:block absolute left-0 top-0 bottom-0
-  w-[420px]
-  bg-gradient-to-r
-  from-black via-black/90 via-black/60 to-transparent
-  z-30 pointer-events-none"
-        />
-
-        {/* Right Fade */}
-        <div
-          className="hidden lg:block absolute right-0 top-0 bottom-0
-  w-[420px]
-  bg-gradient-to-l
-  from-black via-black/90 via-black/60 to-transparent
-  z-30 pointer-events-none"
-        />
-
-        <motion.div
-          className="flex py-2"
-          animate={{
-            x: isHovered ? -1200 : -4000,
-          }}
-          transition={{
-            repeat: Infinity,
-            repeatType: "loop",
-            duration: isHovered ? 40 : 80,
-            ease: "linear",
-          }}
-        >
-          {doubleTestimonials.map((t, index) => (
+        {/* ✅ MOBILE VIEW (Vertical List) */}
+        <div className="flex flex-col gap-6 px-4 lg:hidden">
+          {" "}
+          {testimonials.map((t, index) => (
             <TestimonialCard
               key={index}
               quote={t.quote}
@@ -171,7 +143,39 @@ const Testimonials = () => {
               avatar={t.avatar}
             />
           ))}
-        </motion.div>
+        </div>
+
+        {/* ✅ DESKTOP SLIDER */}
+        <div className="hidden lg:block">
+          {/* Left Fade */}
+          <div className="absolute left-0 top-0 bottom-0 w-[420px] bg-gradient-to-r from-black via-black/90 via-black/60 to-transparent z-30 pointer-events-none" />
+
+          {/* Right Fade */}
+          <div className="absolute right-0 top-0 bottom-0 w-[420px] bg-gradient-to-l from-black via-black/90 via-black/60 to-transparent z-30 pointer-events-none" />
+
+          <motion.div
+            className="flex py-2 gap-8 xl:gap-8"
+            animate={{
+              x: isHovered ? -1200 : -4000,
+            }}
+            transition={{
+              repeat: Infinity,
+              repeatType: "loop",
+              duration: isHovered ? 40 : 80,
+              ease: "linear",
+            }}
+          >
+            {doubleTestimonials.map((t, index) => (
+              <TestimonialCard
+                key={index}
+                quote={t.quote}
+                author={t.author}
+                role={t.role}
+                avatar={t.avatar}
+              />
+            ))}
+          </motion.div>
+        </div>
       </div>
     </section>
   );
