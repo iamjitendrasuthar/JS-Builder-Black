@@ -7,23 +7,22 @@ const Navbar = ({ setCurrentPage }) => {
 
   const links = ["About", "Services", "Projects", "Testimonials"];
 
-  // Animation variants for the menu items
+  // Animation variants - ab sirf opacity change hogi, movement nahi
   const menuVariants = {
-    closed: { opacity: 0, x: -20 },
+    closed: { opacity: 0 },
     open: (i) => ({
       opacity: 1,
-      x: 0,
       transition: {
         delay: i * 0.1,
-        duration: 0.5,
-        ease: [0.22, 1, 0.36, 1],
+        duration: 0.4,
+        ease: "easeOut",
       },
     }),
   };
 
   return (
     <>
-      <nav className="fixed w-full z-50 top-0 bg-[#141414]/50 backdrop-blur-md">
+      <nav className="fixed w-full z-50 top-0 bg-[#141414]/50 backdrop-blur-md border-b border-white/5">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
             {/* Logo */}
@@ -77,10 +76,10 @@ const Navbar = ({ setCurrentPage }) => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-[100] bg-black/60 backdrop-blur-2xl flex flex-col"
+            className="fixed inset-0 z-[100] bg-black/70 backdrop-blur-3xl flex flex-col items-center"
           >
             {/* Overlay Header */}
-            <div className="flex justify-between items-center px-8 py-6">
+            <div className="flex justify-between items-center w-full px-8 py-6">
               <span className="text-white text-2xl font-bold tracking-tight">
                 JSBuilder*
               </span>
@@ -92,8 +91,8 @@ const Navbar = ({ setCurrentPage }) => {
               </button>
             </div>
 
-            {/* Navigation Links */}
-            <div className="flex flex-col px-8 mt-12 space-y-8">
+            {/* Navigation Links - Center Aligned & Full Width */}
+            <div className="flex flex-col w-full mt-12 space-y-2">
               {links.map((link, i) => (
                 <motion.button
                   key={link}
@@ -105,34 +104,34 @@ const Navbar = ({ setCurrentPage }) => {
                     setIsOpen(false);
                     setCurrentPage("home");
                   }}
-                  className="text-left text-white text-4xl font-medium tracking-tight hover:text-neutral-400 transition-colors cursor-pointer"
+                  className="w-full py-5 text-center text-white text-4xl font-medium tracking-tight hover:text-white hover:bg-white/5 transition-all cursor-pointer"
                 >
                   {link}
                 </motion.button>
               ))}
 
-              {/* Mobile CTA Button */}
+              {/* Mobile CTA Button - Center Aligned */}
               <motion.div
                 custom={links.length}
                 variants={menuVariants}
                 initial="closed"
                 animate="open"
-                className="pt-6"
+                className="pt-10 flex justify-center w-full px-8"
               >
                 <button
                   onClick={() => {
                     setIsOpen(false);
                     setCurrentPage("contact");
                   }}
-                  className="px-8 py-4 bg-white text-black text-xl font-bold rounded-full shadow-2xl hover:bg-neutral-200 transition-all cursor-pointer inline-block"
+                  className="w-full max-w-sm py-4 bg-white text-black text-xl font-bold rounded-full shadow-2xl hover:bg-neutral-200 transition-all cursor-pointer"
                 >
                   Contact us
                 </button>
               </motion.div>
             </div>
 
-            {/* Decorative background blur element (optional, matches the circular blur in your image) */}
-            <div className="absolute -bottom-20 -right-20 w-80 h-80 bg-blue-500/20 rounded-full blur-[120px] pointer-events-none" />
+            {/* Background decorative blur */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-[120px] pointer-events-none -z-10" />
           </motion.div>
         )}
       </AnimatePresence>
