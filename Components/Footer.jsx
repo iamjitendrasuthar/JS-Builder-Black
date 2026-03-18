@@ -13,7 +13,7 @@ const Footer = ({ setCurrentPage }) => {
             </p>
             <button
               onClick={() => setCurrentPage("contact")}
-              className="px-6 py-3 rounded-full border border-white/20 text-white hover:bg-white/10 transition-colors inline-flex items-center"
+              className="px-6 py-3 rounded-full border border-white/20 text-white hover:bg-white/10 transition-colors inline-flex items-center cursor-pointer"
             >
               Get in touch
             </button>
@@ -58,9 +58,18 @@ const Footer = ({ setCurrentPage }) => {
           </div>
         </div>
 
-        <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center text-sm text-neutral-500">
-          <p>Copyright © 2026 - All Right Reserved</p>
-          <p className="mt-4 md:mt-0">Designed & Developed by Khuram</p>
+        <div
+          className="pt-3 pb-1 border-t border-white/10 
+  w-screen relative left-1/2 -translate-x-1/2"
+        >
+          <div
+            className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8
+  flex flex-col md:flex-row justify-between items-center
+  text-sm text-neutral-500"
+          >
+            <p>Copyright © 2026 - All Right Reserved</p>
+            <p className="mt-1 md:mt-0">Designed & Developed by Jitendra</p>
+          </div>
         </div>
       </div>
     </footer>

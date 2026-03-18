@@ -1,78 +1,91 @@
-import FadeIn from "@/utils/common";
-import { Instagram, Linkedin, Twitter } from "lucide-react";
+import React from 'react';
+import { Twitter, Instagram, Linkedin } from 'lucide-react';
 
 const TeamSection = () => {
   const team = [
     {
       name: "Noah Bennett",
       role: "Project Manager",
-      img: "https://images.unsplash.com/photo-1506277886164-e25aa3f4ef7f?w=600&q=80",
+      img: "https://images.unsplash.com/photo-1506277886164-e25aa3f4ef7f?w=800&q=80",
     },
     {
       name: "James Benjamin",
       role: "Creative Director",
-      img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80",
+      img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80",
     },
     {
       name: "Adam Reeds",
       role: "Creative Director",
-      img: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=600&q=80",
+      img: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=800&q=80",
     },
   ];
 
   return (
-    <section className="py-24">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <FadeIn className="text-center mb-20">
-          <span className="text-neutral-400 font-medium text-sm tracking-wider uppercase mb-4 block">
-            Our team
-          </span>
-          <h2 className="text-4xl md:text-5xl font-medium text-white mb-6">
-            The dedicated
-            <br />
-            team behind the craft
-          </h2>
-          <p className="text-neutral-400 text-lg max-w-2xl mx-auto">
-            Our team unites designers architects, and builders who care about
-            every detail.
+    <div className="min-h-screen bg-[#0a0a0a] text-white font-sans selection:bg-white selection:text-black">
+      <section className="py-24 px-6 md:px-12 lg:px-24 max-w-7xl mx-auto">
+        
+        {/* Header Section */}
+        <div className="text-center mb-24 space-y-4">
+          <div className="flex justify-center">
+            <span className="bg-[#1a1a1a] text-neutral-400 text-[11px] uppercase tracking-[0.2em] px-5 py-2 rounded-full border border-white/5 font-medium">
+              Our team
+            </span>
+          </div>
+          
+          <h1 className="text-5xl md:text-7xl font-semibold tracking-tight leading-[1.05] pt-4">
+            The dedicated <br /> team behind the craft
+          </h1>
+          
+          <p className="text-neutral-400 text-lg md:text-xl max-w-3xl mx-auto font-light leading-relaxed pt-2">
+            Our team unites designers, architects, and builders who care about every detail.
           </p>
-        </FadeIn>
+        </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {team.map((member, i) => (
-            <FadeIn
-              key={i}
-              delay={i * 0.1}
-              className="bg-[#111] border border-white/5 rounded-[2rem] p-6 text-center hover:bg-[#151515] transition-colors group"
+        {/* Team Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-6">
+          {team.map((member, index) => (
+            <div 
+              key={index}
+              className="group bg-[#111] rounded-[2.5rem] p-6 transition-all duration-500 hover:bg-[#141414]"
             >
-              <div className="aspect-[4/5] w-full mb-6 overflow-hidden rounded-t-[100px] rounded-b-2xl border border-white/5">
+              {/* The Exact Arch Shape Image Container */}
+              <div className="relative mb-8 overflow-hidden rounded-t-[140px] rounded-b-[2rem] aspect-[1/1.2] bg-[#1a1a1a]">
                 <img
                   src={member.img}
                   alt={member.name}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  className="w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-110"
                 />
               </div>
-              <h3 className="text-xl font-medium text-white mb-1">
-                {member.name}
-              </h3>
-              <p className="text-neutral-500 text-sm mb-6">{member.role}</p>
-              <div className="flex justify-center gap-4 text-neutral-400">
-                <a href="#" className="hover:text-white transition-colors">
-                  <Twitter size={18} />
+
+              {/* Member Details */}
+              <div className="text-center space-y-1.5 pb-2">
+                <h3 className="text-2xl font-semibold tracking-tight">
+                  {member.name}
+                </h3>
+                <p className="text-neutral-500 font-normal text-base">
+                  {member.role}
+                </p>
+              </div>
+
+              {/* Social Icons - Updated to match X, Instagram, LinkedIn style */}
+              <div className="flex justify-center items-center gap-6 mt-6 text-neutral-400 pb-2">
+                <a href="#" className="hover:text-white transition-colors duration-300">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" className="h-5 w-5 fill-current">
+                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path>
+                  </svg>
                 </a>
-                <a href="#" className="hover:text-white transition-colors">
-                  <Instagram size={18} />
+                <a href="#" className="hover:text-white transition-colors duration-300">
+                  <Instagram size={20} strokeWidth={2} />
                 </a>
-                <a href="#" className="hover:text-white transition-colors">
-                  <Linkedin size={18} />
+                <a href="#" className="hover:text-white transition-colors duration-300">
+                  <Linkedin size={20} strokeWidth={2} />
                 </a>
               </div>
-            </FadeIn>
+            </div>
           ))}
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
   );
 };
-
 export default TeamSection;
