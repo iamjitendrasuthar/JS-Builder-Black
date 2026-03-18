@@ -4,63 +4,50 @@ import { Star } from "lucide-react";
 
 /**
  * Testimonial Card Component
- * Updated dimensions: Reduced width and padding to make the card smaller.
  */
 const TestimonialCard = ({ quote, author, role, avatar }) => {
   return (
-    <motion.div
-      whileHover={{ y: -5, borderColor: "rgba(255,255,255,0.2)" }}
-      className="flex-shrink-0 
-w-full max-w-[340px] 
-md:max-w-[500px] 
-p-6 md:p-10 
-rounded-[2rem] bg-[#121212] mx-auto
-flex flex-col items-center text-center 
-transition-colors duration-500"
-    >
+    <div className="flex-shrink-0 w-full max-w-[350px] md:w-[450px] p-6 md:p-10 rounded-[2rem] bg-[#121212] flex flex-col items-center text-center border border-white/5 hover:border-white/20 transition-all duration-500">
       {/* Star Rating */}
       <div className="flex gap-1 mb-6">
         {[...Array(5)].map((_, i) => (
           <Star
             key={i}
-            className="w-5 h-5 text-white fill-white" // ⭐ size increase
+            className="w-5 h-5 text-white fill-white"
             strokeWidth={1.5}
           />
         ))}
       </div>
 
-      {/* Client Message */}
-      <p className="text-neutral-300 text-base md:text-md leading-relaxed mb-8 font-light whitespace-normal">
-        {quote}
+      {/* Client Message - Updated to font-medium for boldness */}
+      <p className="text-neutral-200 text-sm md:text-base leading-relaxed mb-8 font-medium min-h-[80px]">
+        "{quote}"
       </p>
 
       {/* Author Info */}
       <div className="mt-auto">
-        <div className="w-14 h-14 rounded-xl overflow-hidden mb-3 mx-auto border border-white/10">
+        <div className="w-14 h-14 rounded-xl overflow-hidden mb-3 mx-auto border border-white/10 bg-neutral-800">
           <img
             src={avatar}
             alt={author}
             className="w-full h-full object-cover"
+            loading="lazy"
             onError={(e) => {
-              e.target.src =
-                "https://ui-avatars.com/api/?name=" +
-                author +
-                "&background=333&color=fff";
+              e.target.onerror = null;
+              e.target.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(author)}&background=333&color=fff`;
             }}
           />
         </div>
-        <h4 className="text-white font-medium text-base mb-0.5">{author}</h4>
-        <p className="text-neutral-500 text-[10px] uppercase tracking-[0.15em]">
+        <h4 className="text-white font-semibold text-base mb-0.5">{author}</h4>
+        <p className="text-neutral-500 text-[10px] uppercase tracking-[0.15em] font-medium">
           {role}
         </p>
       </div>
-    </motion.div>
+    </div>
   );
 };
 
 const Testimonials = () => {
-  const [isHovered, setIsHovered] = useState(false);
-
   const testimonials = [
     {
       quote:
@@ -85,11 +72,53 @@ const Testimonials = () => {
     },
   ];
 
-  // Doubled array for infinite scrolling effect
-  const doubleTestimonials = [...testimonials, ...testimonials];
+  // Doubling the array ensures the "seam" is invisible for infinite loop
+  const doubleTestimonials = [
+    ...testimonials,
+    ...testimonials,
+    ...testimonials,
+  ];
 
   return (
     <section className="py-20 bg-[#080808] border-y border-white/5 overflow-hidden">
+      {/* Global Style for the Marquee Animation with stronger fades */}
+      <style>{`
+        @keyframes marquee {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+        .animate-marquee-infinite {
+          display: flex;
+          width: max-content;
+          animation: marquee 50s linear infinite;
+        }
+        .animate-marquee-infinite:hover {
+          animation-play-state: paused;
+        }
+        /* Fade edges - Increased width to 350px for stronger effect */
+        .marquee-container::before,
+        .marquee-container::after {
+          content: "";
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          width: 350px;
+          z-index: 10;
+          pointer-events: none;
+        }
+        .marquee-container::before {
+          left: 0;
+          background: linear-gradient(to right, #080808 10%, rgba(8, 8, 8, 0.8) 40%, transparent 100%);
+        }
+        .marquee-container::after {
+          right: 0;
+          background: linear-gradient(to left, #080808 10%, rgba(8, 8, 8, 0.8) 40%, transparent 100%);
+        }
+        @media (max-width: 1024px) {
+           .marquee-container::before, .marquee-container::after { width: 40px; }
+        }
+      `}</style>
+
       {/* Header Section */}
       <div className="max-w-7xl mx-auto px-6 text-center mb-16">
         <motion.div
@@ -125,56 +154,22 @@ const Testimonials = () => {
         </motion.p>
       </div>
 
-      {/* Marquee Slider with Left/Right Fade */}
-      <div
-        className="relative w-full overflow-hidden group"
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
-      >
-        {/* ✅ MOBILE VIEW (Vertical List) */}
-        <div className="flex flex-col gap-6 px-4 lg:hidden">
-          {" "}
+      {/* Marquee Slider */}
+      <div className="relative w-full overflow-hidden marquee-container group">
+        {/* MOBILE VIEW - Reduced px-4 to px-2 for tighter sides */}
+        <div className="flex flex-col gap-6 px-2 lg:hidden items-center">
           {testimonials.map((t, index) => (
-            <TestimonialCard
-              key={index}
-              quote={t.quote}
-              author={t.author}
-              role={t.role}
-              avatar={t.avatar}
-            />
+            <TestimonialCard key={`mobile-${index}`} {...t} />
           ))}
         </div>
 
-        {/* ✅ DESKTOP SLIDER */}
-        <div className="hidden lg:block">
-          {/* Left Fade */}
-          <div className="absolute left-0 top-0 bottom-0 w-[420px] bg-gradient-to-r from-black via-black/90 via-black/60 to-transparent z-30 pointer-events-none" />
-
-          {/* Right Fade */}
-          <div className="absolute right-0 top-0 bottom-0 w-[420px] bg-gradient-to-l from-black via-black/90 via-black/60 to-transparent z-30 pointer-events-none" />
-
-          <motion.div
-            className="flex py-2 gap-8 xl:gap-8"
-            animate={{
-              x: isHovered ? -1200 : -4000,
-            }}
-            transition={{
-              repeat: Infinity,
-              repeatType: "loop",
-              duration: isHovered ? 40 : 80,
-              ease: "linear",
-            }}
-          >
+        {/* DESKTOP INFINITE SLIDER */}
+        <div className="hidden lg:block relative">
+          <div className="animate-marquee-infinite py-4 gap-8">
             {doubleTestimonials.map((t, index) => (
-              <TestimonialCard
-                key={index}
-                quote={t.quote}
-                author={t.author}
-                role={t.role}
-                avatar={t.avatar}
-              />
+              <TestimonialCard key={`desktop-${index}`} {...t} />
             ))}
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>
