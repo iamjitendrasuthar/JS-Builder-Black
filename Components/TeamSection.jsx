@@ -27,7 +27,7 @@ const TeamSection = () => {
         {/* Header Section */}
         <div className="text-center mb-24 space-y-4">
           <div className="flex justify-center">
-            <span className="bg-[#1a1a1a] text-neutral-400 text-[11px] uppercase tracking-[0.2em] px-5 py-2 rounded-full border border-white/5 font-medium">
+          <span className="bg-white/10 text-white px-4 py-1.5 rounded-full text-sm font-medium mb-6 inline-block">
               Our team
             </span>
           </div>

@@ -97,9 +97,9 @@ const Testimonials = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="inline-block px-4 py-1 rounded-full bg-white/5 border border-white/10 mb-6"
+          className="inline-block  rounded-full   mb-6"
         >
-          <span className="text-neutral-400 font-medium text-[10px] tracking-[0.2em] uppercase">
+          <span className="px-4 py-2 rounded-full bg-white/10  text-sm text-white font-medium ">
             Testimonials
           </span>
         </motion.div>

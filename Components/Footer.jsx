@@ -5,7 +5,7 @@ const Footer = ({ setCurrentPage }) => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
           <div className="col-span-1 md:col-span-2">
             <span className="text-white text-3xl font-bold tracking-tight mb-4 block">
-              Buildio*
+              JSBuilder*
             </span>
             <p className="text-neutral-400 max-w-sm mb-8 text-lg">
               Thoughtful design for everyday living, crafted with comfort and

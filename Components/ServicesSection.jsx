@@ -129,7 +129,7 @@ const ServicesSection = () => {
         {/* Header Section */}
         <div className="text-center max-w-3xl mx-auto mb-20">
           <FadeIn>
-            <span className="inline-block bg-white/5  rounded-full px-5 py-1.5 text-neutral-400 font-medium text-sm mb-6">
+            <span className="bg-white/10 text-white px-4 py-1.5 rounded-full text-sm font-medium mb-6 inline-block">
               Our services
             </span>
 

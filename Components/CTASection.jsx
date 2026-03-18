@@ -24,7 +24,8 @@ const CTASection = () => {
               We'd love to hear from you. Reach out to discuss your ideas, get a
               quote, or book a consultation.
             </p>
-            <button className="px-8 py-4 bg-white text-black rounded-full font-medium hover:bg-neutral-200 transition-colors text-lg cursor-pointer">
+
+            <button className="px-8 py-4 rounded-full bg-white text-black font-medium border border-transparent transition-all duration-300 hover:bg-white/20 hover:text-white hover:border-white/30 hover:backdrop-blur-md text-lg shadow-lg cursor-pointer">
               Get a free quote!
             </button>
           </div>

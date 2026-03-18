@@ -68,7 +68,7 @@ const RecentWork = () => {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header Section */}
         <FadeIn className="text-center mb-20">
-          <span className="inline-block bg-white/5 rounded-full px-5 py-1.5 text-neutral-400 font-medium text-sm mb-6">
+          <span className="bg-white/10 text-white px-4 py-1.5 rounded-full text-sm font-medium mb-6 inline-block">
             Recent Work
           </span>
           <h2 className="text-4xl md:text-[44px] font-medium text-white mb-6 tracking-tight leading-tight">
