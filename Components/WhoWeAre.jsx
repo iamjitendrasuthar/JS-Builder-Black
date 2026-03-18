@@ -1,185 +1,138 @@
-// import FadeIn from "@/utils/common";
-
-// const WhoWeAre = () => {
-//   return (
-//     <section className="py-24">
-//       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-//         <FadeIn>
-//           <span className="text-neutral-400 font-medium text-sm tracking-wider uppercase mb-6 block">
-//             Who we are
-//           </span>
-//           <h2 className="text-3xl md:text-5xl font-medium text-white leading-tight mb-20">
-//             We're a team of designers, architects, and builders turning spaces
-//             into works of art. From interiors to landscapes, we deliver lasting
-//             results tailored to your vision.
-//           </h2>
-//         </FadeIn>
-
-//         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 border-t border-white/10 pt-16">
-//           {[
-//             { value: "15+", label: "Years of experience" },
-//             { value: "25+", label: "Talented team members" },
-//             { value: "69+", label: "Completed projects" },
-//             { value: "9+", label: "Industry awards won" },
-//           ].map((stat, i) => (
-//             <FadeIn
-//               key={i}
-//               delay={i * 0.1}
-//               className="text-left md:text-center"
-//             >
-//               <div className="text-4xl md:text-5xl font-medium text-white mb-2">
-//                 {stat.value}
-//               </div>
-//               <div className="text-neutral-400 text-sm">{stat.label}</div>
-//             </FadeIn>
-//           ))}
-//         </div>
-//       </div>
-//     </section>
-//   );
-// };
-
-// export default WhoWeAre;
 import React from "react";
+import { motion } from "framer-motion";
 
-// Simple FadeIn component to mimic the intended animation behavior
 const FadeIn = ({ children, delay = 0, className = "" }) => {
   return (
-    <div
-      className={`animate-fade-in-up ${className}`}
-      style={{
-        animationDelay: `${delay}s`,
-        animationFillMode: "both",
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-100px" }}
+      transition={{
+        duration: 0.8,
+        delay: delay,
+        ease: [0.21, 0.45, 0.32, 0.9],
       }}
+      className={className}
     >
       {children}
-    </div>
+    </motion.div>
   );
 };
 
 const WhoWeAre = () => {
   return (
-    <section className="bg-[#121212] py-24 font-sans text-white min-h-screen">
-      {/* Inline styles for the fade animation */}
-      <style>
-        {`
-          @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-          }
-          .animate-fade-in-up {
-            animation: fadeInUp 0.8s ease-out forwards;
-            opacity: 0;
-          }
-        `}
-      </style>
+    <section className="bg-[#0a0a0a] py-24 lg:py-32 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Top Content Area */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-20">
+          <div className="lg:col-span-8">
+            <FadeIn>
+              <span className="inline-block px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-sm font-medium text-neutral-400 mb-8 uppercase tracking-widest">
+                Who we are
+              </span>
+              <h2 className="text-3xl md:text-5xl lg:text-[56px] font-medium text-white leading-[1.1] tracking-tight">
+                We're a team of designers, architects, and builders turning
+                spaces into{" "}
+                <span className="text-neutral-500 italic font-serif">
+                  works of art
+                </span>
+                .
+              </h2>
+            </FadeIn>
+          </div>
 
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Top Header Section */}
-        <div className="text-center relative max-w-4xl mx-auto mb-24">
-          <FadeIn>
-            {/* Floating decorative image */}
-            <div className="absolute -top-10 left-0 hidden md:block w-16 h-20 rounded-t-full rounded-b-md overflow-hidden border-2 border-white/10 opacity-90 transform -rotate-6">
-              <img
-                src="https://images.unsplash.com/photo-1518780664697-55e3ad937233?auto=format&fit=crop&q=80&w=200"
-                alt="House illustration"
-                className="w-full h-full object-cover"
-              />
-            </div>
-
-            <span className="bg-white/10 text-white px-4 py-1.5 rounded-full text-sm font-medium mb-6 inline-block">
-              Who we are
-            </span>
-
-            <h2 className="text-3xl md:text-[44px] font-medium text-white leading-[1.15] mb-20 tracking-tight">
-              We're a team of designers, architects, and builders turning spaces
-              into works of art. From interiors to landscapes, we deliver
-              lasting results tailored to your vision.
-            </h2>
-          </FadeIn>
-
-          {/* Stats Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4 text-left md:text-left">
-            {[
-              { value: "15+", label: "Years of experience" },
-              { value: "25+", label: "Talented team members" },
-              { value: "100+", label: "Completed projects" },
-              { value: "9+", label: "Industry awards won" },
-            ].map((stat, i) => (
-              <FadeIn key={i} delay={i * 0.1} className="flex flex-col">
-                <div className="text-[40px] md:text-5xl font-medium text-white mb-1 tracking-tight">
-                  {stat.value}
-                </div>
-                <div className="text-[#a3a3a3] text-sm md:text-base tracking-wide">
-                  {stat.label}
-                </div>
-              </FadeIn>
-            ))}
+          <div className="lg:col-span-4 flex items-end">
+            <FadeIn delay={0.2}>
+              <p className="text-lg text-neutral-400 leading-relaxed">
+                From interiors to landscapes, we deliver lasting results
+                tailored to your vision and lifestyle needs.
+              </p>
+            </FadeIn>
           </div>
         </div>
 
-        {/* Bottom Cards Section */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          {/* Left Dark Card */}
+        {/* Stats Grid */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-24 border-t border-white/10 pt-16">
+          {[
+            { value: "15+", label: "Years of experience" },
+            { value: "25+", label: "Talented team members" },
+            { value: "100+", label: "Completed projects" },
+            { value: "9+", label: "Industry awards" },
+          ].map((stat, i) => (
+            <FadeIn key={i} delay={i * 0.1}>
+              <div className="text-4xl md:text-5xl font-medium text-white mb-2 tracking-tighter">
+                {stat.value}
+              </div>
+              <div className="text-neutral-500 text-sm md:text-base uppercase tracking-wider font-medium">
+                {stat.label}
+              </div>
+            </FadeIn>
+          ))}
+        </div>
+
+        {/* Bottom Visual Cards */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          {/* Left Feature Card */}
           <FadeIn
             delay={0.3}
-            className="bg-[#1C1C1C] rounded-[32px] p-8 md:p-12 relative overflow-hidden flex flex-col justify-between min-h-[420px]"
+            className="bg-[#141414] rounded-[40px] p-8 md:p-14 relative overflow-hidden flex flex-col justify-between min-h-[450px] border border-white/5"
           >
             <div className="relative z-10">
-              <h3 className="text-white text-[22px] leading-snug mb-8 max-w-[90%] font-medium tracking-tight">
-                We design with intention creating spaces that reflect your
-                style, not just trends.
+              <h3 className="text-white text-2xl md:text-3xl leading-snug mb-8 max-w-sm font-medium">
+                We design with intention, creating spaces that reflect your
+                personality.
               </h3>
-              <ul className="space-y-3.5 text-[#A3A3A3] text-[15px]">
-                <li>1: Balance of style and function</li>
-                <li>2: Timeless results, built to last</li>
-                <li>3: Thoughtful, detail driven process</li>
-              </ul>
+              <div className="space-y-4">
+                {[
+                  "Balance of style and function",
+                  "Timeless results, built to last",
+                  "Thoughtful, detail driven process",
+                ].map((item, idx) => (
+                  <div
+                    key={idx}
+                    className="flex items-center gap-3 text-neutral-400"
+                  >
+                    <div className="w-1.5 h-1.5 rounded-full bg-white/30" />
+                    <span className="text-base">{item}</span>
+                  </div>
+                ))}
+              </div>
             </div>
 
-            {/* Bottom Graphics Area */}
-            <div className="mt-16 relative flex items-end">
-              {/* Overlapping Arches */}
-              <div className="flex items-end -space-x-4 relative z-10 ml-4 pb-4">
-                <div className="w-[60px] h-[70px] rounded-t-full border-[4px] border-[#1C1C1C] overflow-hidden relative z-0">
-                  <img
-                    src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&q=80&w=150"
-                    alt="Interior detail"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="w-[70px] h-[85px] rounded-t-full border-[4px] border-[#1C1C1C] overflow-hidden relative z-10 mb-3 shadow-xl">
-                  <img
-                    src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&q=80&w=150"
-                    alt="Exterior building"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="w-[60px] h-[70px] rounded-t-full border-[4px] border-[#1C1C1C] overflow-hidden relative z-0">
-                  <img
-                    src="https://images.unsplash.com/photo-1600607686527-6fb886090705?auto=format&fit=crop&q=80&w=150"
-                    alt="Living room"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
+            <div className="mt-12 relative flex items-center justify-between">
+              <div className="flex items-end -space-x-4">
+                {[
+                  "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&q=80&w=150",
+                  "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&q=80&w=150",
+                  "https://images.unsplash.com/photo-1600607686527-6fb886090705?auto=format&fit=crop&q=80&w=150",
+                ].map((img, idx) => (
+                  <div
+                    key={idx}
+                    className={`w-16 h-20 md:w-20 md:h-28 rounded-t-full border-4 border-[#141414] overflow-hidden shadow-2xl ${idx === 1 ? "z-10 -translate-y-4" : "z-0"}`}
+                  >
+                    <img
+                      src={img}
+                      alt="detail"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                ))}
               </div>
-
-              {/* Faded Background Text */}
-              <div className="absolute -bottom-8 left-0 text-[110px] md:text-[130px] font-bold text-white/[0.03] leading-none pointer-events-none select-none tracking-tighter">
+              <div className="text-4xl md:text-6xl font-bold text-white/[0.03] tracking-tighter select-none">
                 JSBuilder*
               </div>
             </div>
           </FadeIn>
 
-          {/* Right Image Card */}
+          {/* Right Hero-Style Image Card */}
           <FadeIn
             delay={0.4}
-            className="rounded-[32px] overflow-hidden min-h-[420px] h-full"
+            className="rounded-[40px] overflow-hidden h-[450px] lg:h-full border border-white/5 shadow-2xl"
           >
             <img
               src="https://images.unsplash.com/photo-1600210491369-e753d80a41f3?auto=format&fit=crop&q=80&w=1200"
-              alt="Bright modern interior with long dining table"
-              className="w-full h-full object-cover"
+              alt="Modern interior"
+              className="w-full h-full object-cover hover:scale-105 transition-transform duration-1000"
             />
           </FadeIn>
         </div>

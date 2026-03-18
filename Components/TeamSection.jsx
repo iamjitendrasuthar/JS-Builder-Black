@@ -1,5 +1,5 @@
-import React from 'react';
-import { Twitter, Instagram, Linkedin } from 'lucide-react';
+import { motion } from "framer-motion";
+import { Instagram, Linkedin } from "lucide-react";
 
 const TeamSection = () => {
   const team = [
@@ -21,71 +21,102 @@ const TeamSection = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a] text-white font-sans selection:bg-white selection:text-black">
-      <section className="py-24 px-6 md:px-12 lg:px-24 max-w-7xl mx-auto">
-        
-        {/* Header Section */}
-        <div className="text-center mb-24 space-y-4">
+    <div className="bg-[#0a0a0a] text-white font-sans selection:bg-white selection:text-black">
+      <section className="py-24 lg:py-32 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* ✅ Header Animation: Scroll par trigger hoga */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-20 space-y-6"
+        >
           <div className="flex justify-center">
-          <span className="bg-white/10 text-white px-4 py-1.5 rounded-full text-sm font-medium mb-6 inline-block">
+            <span className="bg-white/5 border border-white/10 text-neutral-400 px-4 py-1.5 rounded-full text-sm font-medium uppercase tracking-widest">
               Our team
             </span>
           </div>
-          
-          <h1 className="text-5xl md:text-7xl font-semibold tracking-tight leading-[1.05] pt-4">
-            The dedicated <br /> team behind the craft
-          </h1>
-          
-          <p className="text-neutral-400 text-lg md:text-xl max-w-3xl mx-auto font-light leading-relaxed pt-2">
-            Our team unites designers, architects, and builders who care about every detail.
+
+          <h2 className="text-4xl md:text-6xl lg:text-7xl font-medium tracking-tight leading-[1.1]">
+            The dedicated <br />
+            team behind the{" "}
+            <span className="text-neutral-500 italic font-serif">craft</span>
+          </h2>
+
+          <p className="text-neutral-400 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
+            Our team unites designers, architects, and builders who care about
+            every detail.
           </p>
-        </div>
+        </motion.div>
 
         {/* Team Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {team.map((member, index) => (
-            <div 
+            <motion.div
               key={index}
-              className="group bg-[#111] rounded-[2.5rem] p-6 transition-all duration-500 hover:bg-[#141414]"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{
+                duration: 0.8,
+                delay: index * 0.1, // Stagger effect: ek ke baad ek aayenge
+                ease: [0.21, 0.45, 0.32, 0.9],
+              }}
+              className="group bg-[#141414] rounded-[40px] p-6 border border-white/5 transition-all duration-500 hover:border-white/10 hover:bg-[#1a1a1a]"
             >
-              {/* The Exact Arch Shape Image Container */}
-              <div className="relative mb-8 overflow-hidden rounded-t-[140px] rounded-b-[2rem] aspect-[1/1.2] bg-[#1a1a1a]">
+              {/* Image Container */}
+              <div className="relative mb-8 overflow-hidden rounded-t-[140px] rounded-b-[40px] aspect-[4/5] bg-[#1a1a1a] border border-white/5">
                 <img
                   src={member.img}
                   alt={member.name}
                   className="w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-110"
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               </div>
 
               {/* Member Details */}
-              <div className="text-center space-y-1.5 pb-2">
-                <h3 className="text-2xl font-semibold tracking-tight">
+              <div className="text-center space-y-2 pb-2">
+                <h3 className="text-2xl md:text-3xl font-medium tracking-tight text-white">
                   {member.name}
                 </h3>
-                <p className="text-neutral-500 font-normal text-base">
+                <p className="text-neutral-500 font-medium text-base uppercase tracking-wider">
                   {member.role}
                 </p>
               </div>
 
-              {/* Social Icons - Updated to match X, Instagram, LinkedIn style */}
-              <div className="flex justify-center items-center gap-6 mt-6 text-neutral-400 pb-2">
-                <a href="#" className="hover:text-white transition-colors duration-300">
-                  <svg viewBox="0 0 24 24" aria-hidden="true" className="h-5 w-5 fill-current">
+              {/* Social Icons */}
+              <div className="flex justify-center items-center gap-6 mt-6 text-neutral-500 pb-4">
+                <a
+                  href="#"
+                  className="hover:text-white transition-colors duration-300"
+                >
+                  <svg
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                    className="h-5 w-5 fill-current"
+                  >
                     <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path>
                   </svg>
                 </a>
-                <a href="#" className="hover:text-white transition-colors duration-300">
-                  <Instagram size={20} strokeWidth={2} />
+                <a
+                  href="#"
+                  className="hover:text-white transition-colors duration-300"
+                >
+                  <Instagram size={20} />
                 </a>
-                <a href="#" className="hover:text-white transition-colors duration-300">
-                  <Linkedin size={20} strokeWidth={2} />
+                <a
+                  href="#"
+                  className="hover:text-white transition-colors duration-300"
+                >
+                  <Linkedin size={20} />
                 </a>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </section>
     </div>
   );
 };
+
 export default TeamSection;

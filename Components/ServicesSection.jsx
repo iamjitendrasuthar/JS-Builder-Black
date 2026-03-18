@@ -1,17 +1,21 @@
 import React from "react";
+import { motion } from "framer-motion";
 
-// Animation behavior ki nakal karne ke liye simple FadeIn component
 const FadeIn = ({ children, delay = 0, className = "" }) => {
   return (
-    <div
-      className={`animate-fade-in-up ${className}`}
-      style={{
-        animationDelay: `${delay}s`,
-        animationFillMode: "both",
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{
+        duration: 0.8,
+        delay: delay,
+        ease: [0.21, 0.45, 0.32, 0.9],
       }}
+      className={className}
     >
       {children}
-    </div>
+    </motion.div>
   );
 };
 
@@ -110,34 +114,22 @@ const ServicesSection = () => {
   ];
 
   return (
-    <section className="bg-[#121212] py-24 font-sans text-white min-h-screen">
-      {/* Fade animation ke liye inline styles */}
-      <style>
-        {`
-          @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-          }
-          .animate-fade-in-up {
-            animation: fadeInUp 0.8s ease-out forwards;
-            opacity: 0;
-          }
-        `}
-      </style>
-
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="bg-[#0a0a0a] py-24 lg:py-32 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header Section */}
-        <div className="text-center max-w-3xl mx-auto mb-20">
-          <FadeIn>
-            <span className="bg-white/10 text-white px-4 py-1.5 rounded-full text-sm font-medium mb-6 inline-block">
+        <div className="mb-16 lg:mb-24">
+          <FadeIn className="flex flex-col items-center lg:items-start text-center lg:text-left">
+            <span className="bg-white/5 border border-white/10 text-neutral-400 px-4 py-1.5 rounded-full text-sm font-medium mb-6 inline-block uppercase tracking-widest">
               Our services
             </span>
 
-            <h2 className="text-4xl md:text-[44px] font-medium text-white leading-tight mb-6 tracking-tight">
-              Services that shape spaces
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-medium text-white leading-tight mb-8 tracking-tight">
+              Services that{" "}
+              <span className="text-neutral-500 italic font-serif">shape</span>{" "}
+              spaces
             </h2>
 
-            <p className="text-[#a3a3a3] text-lg max-w-2xl mx-auto">
+            <p className="text-[#a3a3a3] text-lg md:text-xl max-w-2xl leading-relaxed">
               Building new or upgrading? We craft stylish, inspiring spaces that
               feel uniquely yours.
             </p>
@@ -145,46 +137,46 @@ const ServicesSection = () => {
         </div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
           {services.map((service, index) => (
             <FadeIn key={service.id} delay={index * 0.1}>
-              {/* Card height kam karne ke liye padding aur min-height adjust ki gayi hai */}
-              <div className="group relative bg-[#1C1C1C] rounded-[32px] p-8 overflow-hidden flex flex-col items-start min-h-[260px] md:min-h-[280px] border border-white/5 transition-colors duration-500 hover:bg-[#222222]">
-                {/* Content Area */}
-                <div className="relative z-20 flex-1 flex flex-col items-start max-w-[100%] sm:max-w-[70%]">
-                  {/* Icon - Circle container aur SVG ki size badhai gayi hai */}
-                  <div className="w-16 h-16 md:w-[72px] md:h-[72px] rounded-full border border-white/10 flex items-center justify-center mb-6 text-neutral-300">
+              <div className="group relative bg-[#141414] rounded-[40px] p-8 lg:p-12 overflow-hidden flex flex-col items-start min-h-[320px] border border-white/5 transition-all duration-500 hover:bg-[#1a1a1a] hover:border-white/10">
+                <div className="relative z-20 flex-1 flex flex-col items-start max-w-full sm:max-w-[75%]">
+                  <div className="w-16 h-16 rounded-full border border-white/10 flex items-center justify-center mb-8 text-white group-hover:bg-white group-hover:text-black transition-all duration-500">
                     {service.icon}
                   </div>
 
-                  {/* Text */}
-                  <h3 className="text-2xl md:text-[28px] font-medium text-white mb-3 tracking-tight">
+                  <h3 className="text-2xl md:text-3xl font-medium text-white mb-4 tracking-tight">
                     {service.title}
                   </h3>
-                  <p className="text-[#A3A3A3] text-base md:text-[17px] leading-relaxed mb-6">
+                  <p className="text-[#A3A3A3] text-base md:text-lg leading-relaxed mb-8">
                     {service.description}
                   </p>
 
-                  {/* Button */}
-
-                  <button
-                    className="px-4 py-2 rounded-full bg-[#1e1e1e] text-white font-medium 
-transition-all duration-300 hover:bg-white/20 hover:backdrop-blur-md 
-border border-white/10 hover:border-white/30 text-base shadow-lg cursor-pointer"
-                  >
-                    View services
+                  <button className="flex items-center gap-2 text-white font-medium hover:gap-4 transition-all duration-300">
+                    Learn more
+                    <svg
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <line x1="5" y1="12" x2="19" y2="12"></line>
+                      <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
                   </button>
                 </div>
 
-                {/* Hover Image Animation */}
-                <div className="absolute top-25 right-0 w-[180px] h-[130px] md:w-[220px] md:h-[160px] rounded-l-full overflow-hidden transform translate-x-1/2 -translate-y-1/2 opacity-0 group-hover:translate-x-0 group-hover:-translate-y-1/2 group-hover:opacity-100 transition-all duration-500 ease-out pointer-events-none z-10 hidden sm:block">
+                <div className="absolute -top-10 -right-10 w-[240px] h-[320px] rounded-[40px] overflow-hidden rotate-12 opacity-0 group-hover:opacity-20 group-hover:rotate-6 transition-all duration-700 ease-out pointer-events-none z-10 hidden lg:block">
                   <img
                     src={service.image}
                     alt={service.title}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover scale-110 group-hover:scale-100 transition-transform duration-1000"
                   />
-                  {/* Behtar blending ke liye subtle overlay */}
-                  <div className="absolute inset-0 bg-black/10"></div>
                 </div>
               </div>
             </FadeIn>

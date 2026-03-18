@@ -19,55 +19,86 @@ const FAQ = () => {
       q: "How do I begin a new home project with your team?",
       a: "Simply reach out via our contact form to schedule an initial consultation where we'll discuss your vision and budget.",
     },
+    {
+      q: "Do you offer post-construction maintenance?",
+      a: "We provide detailed care guides for all materials used and offer optional seasonal maintenance packages for outdoor spaces.",
+    },
   ];
 
   return (
-    <section className="py-24 bg-[#0A0A0A]">
-      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-        <FadeIn className="text-center mb-16">
-          <span className="bg-white/10 text-white px-4 py-1.5 rounded-full text-sm font-medium mb-6 inline-block">
-            FAQs
-          </span>
-          <h2 className="text-4xl font-medium text-white mb-4">
-            Frequently asked questions
-          </h2>
-          <p className="text-neutral-400">
-            Find helpful answers about our services, detailed process, and
-            bringing your vision to life.
-          </p>
-        </FadeIn>
-
-        <div className="space-y-4">
-          {faqs.map((faq, i) => (
-            <FadeIn key={i} delay={i * 0.1}>
-              <div
-                className="bg-[#111] border border-white/5 rounded-2xl overflow-hidden cursor-pointer"
-                onClick={() => setOpenIdx(openIdx === i ? null : i)}
-              >
-                <div className="px-6 py-5 flex justify-between items-center">
-                  <h4 className="text-lg font-medium text-white">{faq.q}</h4>
-                  <ChevronDown
-                    className={`text-neutral-400 transition-transform duration-300 ${openIdx === i ? "rotate-180" : ""}`}
-                  />
-                </div>
-                <AnimatePresence>
-                  {openIdx === i && (
-                    <motion.div
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: "auto", opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      className="px-6 pb-5 text-neutral-400"
-                    >
-                      {faq.a}
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
+    <section className="py-24 lg:py-32 bg-[#0A0A0A]">
+      {/* ✅ HERO MATCHED WIDTH: max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
+          {/* Left Side: Header (Sticky on Desktop) */}
+          <div className="lg:col-span-5">
+            <FadeIn className="lg:sticky lg:top-32">
+              <span className="bg-white/5 border border-white/10 text-neutral-400 px-4 py-1.5 rounded-full text-sm font-medium uppercase tracking-widest mb-6 inline-block">
+                FAQs
+              </span>
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-medium text-white leading-tight mb-8 tracking-tight">
+                Frequently <br /> asked{" "}
+                <span className="text-neutral-500 italic font-serif">
+                  questions
+                </span>
+              </h2>
+              <p className="text-neutral-400 text-lg md:text-xl leading-relaxed">
+                Find helpful answers about our services, detailed process, and
+                bringing your vision to life.
+              </p>
             </FadeIn>
-          ))}
+          </div>
+
+          {/* Right Side: Accordions */}
+          <div className="lg:col-span-7 space-y-4">
+            {faqs.map((faq, i) => (
+              <FadeIn key={i} delay={i * 0.1}>
+                <div
+                  className={`group rounded-[32px] border transition-all duration-500 cursor-pointer overflow-hidden ${
+                    openIdx === i
+                      ? "bg-[#141414] border-white/20"
+                      : "bg-[#111] border-white/5 hover:border-white/10"
+                  }`}
+                  onClick={() => setOpenIdx(openIdx === i ? null : i)}
+                >
+                  <div className="px-8 py-7 flex justify-between items-center gap-4">
+                    <h4
+                      className={`text-xl font-medium transition-colors duration-300 ${openIdx === i ? "text-white" : "text-neutral-300 group-hover:text-white"}`}
+                    >
+                      {faq.q}
+                    </h4>
+                    <div
+                      className={`w-8 h-8 rounded-full border border-white/10 flex items-center justify-center flex-shrink-0 transition-all duration-500 ${openIdx === i ? "bg-white text-black rotate-180" : "text-neutral-500"}`}
+                    >
+                      <ChevronDown size={18} />
+                    </div>
+                  </div>
+
+                  <AnimatePresence>
+                    {openIdx === i && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{
+                          duration: 0.4,
+                          ease: [0.21, 0.45, 0.32, 0.9],
+                        }}
+                      >
+                        <div className="px-8 pb-8 text-neutral-400 text-lg leading-relaxed border-t border-white/5 pt-4 mx-2">
+                          {faq.a}
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              </FadeIn>
+            ))}
+          </div>
         </div>
       </div>
     </section>
   );
 };
+
 export default FAQ;
