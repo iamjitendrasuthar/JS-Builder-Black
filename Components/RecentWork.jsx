@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-
+import Link from "next/link";
 /**
  * ✅ SCROLL TRIGGERED FADE-IN
  */
@@ -29,7 +29,7 @@ const RecentWork = () => {
       desc: "A sun-soaked villa received a modern yet respectful upgrade. With a focus on natural materials, elegant minimalism, and spatial flow, we revived this property into a timeless family retreat.",
       type: "Villa Renovation",
       location: "Marbella, Spain",
-      img: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=1000",
+      img: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1000",
     },
     {
       title: "Modern Living Room Redesign",
@@ -115,12 +115,16 @@ const RecentWork = () => {
                     </div>
                   </div>
 
-                  <button className="group flex items-center gap-3 px-8 py-4 rounded-full bg-white text-black font-bold transition-all duration-300 hover:bg-neutral-200">
-                    View in detail
+                  {/* ✅ BUTTON WITH HOVER ARROW ANIMATION */}
+                  <Link
+                    href="/contact"
+                    className="group/btn px-8 py-3.5 rounded-full border border-white/10 text-white font-medium hover:bg-white hover:text-black transition-all duration-300 inline-flex items-center gap-2 cursor-pointer overflow-hidden"
+                  >
+                    View in details
                     <svg
-                      className="group-hover:translate-x-1 transition-transform"
-                      width="20"
-                      height="20"
+                      className="transition-transform duration-300 ease-out group-hover/btn:translate-x-1.5"
+                      width="18"
+                      height="18"
                       viewBox="0 0 24 24"
                       fill="none"
                       stroke="currentColor"
@@ -131,7 +135,7 @@ const RecentWork = () => {
                       <line x1="5" y1="12" x2="19" y2="12"></line>
                       <polyline points="12 5 19 12 12 19"></polyline>
                     </svg>
-                  </button>
+                  </Link>
                 </div>
 
                 {/* Image Content */}

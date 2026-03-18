@@ -1,5 +1,36 @@
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useEffect, useRef } from "react";
+import {
+  motion,
+  useMotionValue,
+  useTransform,
+  animate,
+  useInView,
+} from "framer-motion";
+
+/**
+ * ✅ COUNTER ANIMATION COMPONENT
+ * Numbers ko 0 se target value tak animate karta hai.
+ */
+const Counter = ({ value }) => {
+  const count = useMotionValue(0);
+  const rounded = useTransform(count, (latest) => Math.round(latest) + "+");
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-50px" });
+
+  useEffect(() => {
+    if (isInView) {
+      // String se number extract karna (e.g., "15+" -> 15)
+      const numericValue = parseInt(value);
+      const controls = animate(count, numericValue, {
+        duration: 2,
+        ease: "easeOut",
+      });
+      return controls.stop;
+    }
+  }, [isInView, value, count]);
+
+  return <motion.div ref={ref}>{rounded}</motion.div>;
+};
 
 const FadeIn = ({ children, delay = 0, className = "" }) => {
   return (
@@ -20,6 +51,13 @@ const FadeIn = ({ children, delay = 0, className = "" }) => {
 };
 
 const WhoWeAre = () => {
+  const stats = [
+    { value: "15+", label: "Years of experience" },
+    { value: "25+", label: "Talented team members" },
+    { value: "100+", label: "Completed projects" },
+    { value: "9+", label: "Industry awards" },
+  ];
+
   return (
     <section className="bg-[#0a0a0a] py-24 lg:py-32 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -51,17 +89,12 @@ const WhoWeAre = () => {
           </div>
         </div>
 
-        {/* Stats Grid */}
+        {/* ✅ STATS GRID WITH FLIP/COUNTER ANIMATION */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-24 border-t border-white/10 pt-16">
-          {[
-            { value: "15+", label: "Years of experience" },
-            { value: "25+", label: "Talented team members" },
-            { value: "100+", label: "Completed projects" },
-            { value: "9+", label: "Industry awards" },
-          ].map((stat, i) => (
+          {stats.map((stat, i) => (
             <FadeIn key={i} delay={i * 0.1}>
               <div className="text-4xl md:text-5xl font-medium text-white mb-2 tracking-tighter">
-                {stat.value}
+                <Counter value={stat.value} />
               </div>
               <div className="text-neutral-500 text-sm md:text-base uppercase tracking-wider font-medium">
                 {stat.label}
@@ -72,7 +105,6 @@ const WhoWeAre = () => {
 
         {/* Bottom Visual Cards */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {/* Left Feature Card */}
           <FadeIn
             delay={0.3}
             className="bg-[#141414] rounded-[40px] p-8 md:p-14 relative overflow-hidden flex flex-col justify-between min-h-[450px] border border-white/5"
@@ -124,7 +156,6 @@ const WhoWeAre = () => {
             </div>
           </FadeIn>
 
-          {/* Right Hero-Style Image Card */}
           <FadeIn
             delay={0.4}
             className="rounded-[40px] overflow-hidden h-[450px] lg:h-full border border-white/5 shadow-2xl"
