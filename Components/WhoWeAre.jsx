@@ -166,7 +166,7 @@ const WhoWeAre = () => {
 
               {/* Faded Background Text */}
               <div className="absolute -bottom-8 left-0 text-[110px] md:text-[130px] font-bold text-white/[0.03] leading-none pointer-events-none select-none tracking-tighter">
-                Buildio*
+                JSBuilder*
               </div>
             </div>
           </FadeIn>
