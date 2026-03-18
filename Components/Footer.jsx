@@ -1,3 +1,4 @@
+'use client'
 import React from "react";
 import { motion } from "framer-motion";
 
@@ -22,7 +23,7 @@ const FadeIn = ({ children, delay = 0, className = "" }) => {
   );
 };
 
-const Footer = ({ setCurrentPage }) => {
+const Footer = () => {
   return (
     <footer className="bg-[#0a0a0a] border-t border-white/5 pt-24 pb-12 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -37,10 +38,7 @@ const Footer = ({ setCurrentPage }) => {
               Thoughtful design for everyday living, crafted with comfort and
               style in mind. We turn visions into reality.
             </p>
-            <button
-              onClick={() => setCurrentPage("contact")}
-              className="group/btn px-8 py-3.5 rounded-full border border-white/10 text-white font-medium hover:bg-white hover:text-black transition-all duration-300 inline-flex items-center gap-2 cursor-pointer"
-            >
+            <button className="group/btn px-8 py-3.5 rounded-full border border-white/10 text-white font-medium hover:bg-white hover:text-black transition-all duration-300 inline-flex items-center gap-2 cursor-pointer">
               Get in touch
               <svg
                 className="transition-transform duration-300 ease-out group-hover/btn:translate-x-1.5"
@@ -67,14 +65,7 @@ const Footer = ({ setCurrentPage }) => {
             <ul className="space-y-4">
               {["About", "Services", "Projects", "Contact"].map((link) => (
                 <li key={link}>
-                  <button
-                    onClick={() =>
-                      link === "Contact"
-                        ? setCurrentPage("contact")
-                        : setCurrentPage("home")
-                    }
-                    className="text-neutral-500 hover:text-white transition-colors duration-300 text-lg"
-                  >
+                  <button className="text-neutral-500 hover:text-white transition-colors duration-300 text-lg">
                     {link}
                   </button>
                 </li>

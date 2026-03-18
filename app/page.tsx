@@ -14,6 +14,7 @@ import FAQ from "../Components/FAQ";
 import CTASection from "../Components/CTASection";
 import ContactView from "../Components/ContactView";
 import Footer from "../Components/Footer";
+import Contact from "./contact/page";
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState("home");
@@ -25,7 +26,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-[#141414] text-white font-sans selection:bg-white/20">
-      <Navbar currentPage={currentPage} setCurrentPage={setCurrentPage} />
+      {/* <Navbar currentPage={currentPage} setCurrentPage={setCurrentPage} /> */}
 
       <main>
         {currentPage === "home" ? (
@@ -54,12 +55,12 @@ export default function App() {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <ContactView />
+            <Contact />
           </motion.div>
         )}
       </main>
 
-      <Footer setCurrentPage={setCurrentPage} />
+      {/* <Footer setCurrentPage={setCurrentPage} /> */}
     </div>
   );
 }

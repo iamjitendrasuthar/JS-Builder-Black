@@ -1,24 +1,21 @@
+"use client";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 
-const Navbar = ({ setCurrentPage }) => {
+const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const links = ["About", "Services", "Projects", "Testimonials"];
 
   return (
-    // Is container par glass effect hai jo pure menu par apply hoga
-    <nav className="fixed w-full z-50 top-0 bg-[#141414]/50 backdrop-blur-md">
+    <nav className="fixed w-full z-50 top-0 bg-[#0a0a0a]/50 backdrop-blur-md">
+      
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16 lg:h-18">
+        <div className="flex justify-between items-center h-22">
           {/* Logo */}
           <div
-            className="flex-shrink-0 cursor-pointer"
-            onClick={() => {
-              setCurrentPage("home");
-              setIsOpen(false);
-            }}
+            className="flex-shrink-0 cursor-pointer group"
           >
             <span className="text-white text-2xl font-bold tracking-tight">
               JSBuilder*
@@ -30,8 +27,8 @@ const Navbar = ({ setCurrentPage }) => {
             {links.map((link) => (
               <button
                 key={link}
-                onClick={() => setCurrentPage("home")}
-                className="text-neutral-300 hover:text-white transition-colors text-[17px] font-medium"
+                // 'cursor-pointer' added for clarity, though buttons have it by default
+                className="text-neutral-300 hover:text-white transition-colors text-[17px] font-medium cursor-pointer"
               >
                 {link}
               </button>
@@ -40,7 +37,7 @@ const Navbar = ({ setCurrentPage }) => {
 
           {/* CTA */}
           <div className="hidden md:flex">
-            <button className="px-5 py-2 rounded-full bg-white text-black font-medium border border-transparent transition-all duration-300 hover:bg-white/20 hover:text-white hover:border-white/30 text-[16px] shadow-lg">
+            <button className="px-5 py-2.5 rounded-full bg-white text-black font-medium border border-transparent transition-all duration-300 hover:bg-white/20 hover:text-white hover:border-white/30 hover:backdrop-blur-md text-lg cursor-pointer">
               Contact us
             </button>
           </div>
@@ -49,7 +46,7 @@ const Navbar = ({ setCurrentPage }) => {
           <div className="md:hidden flex items-center">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-white p-2"
+              className="text-neutral-300 hover:text-white cursor-pointer"
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -57,26 +54,23 @@ const Navbar = ({ setCurrentPage }) => {
         </div>
       </div>
 
-      {/* ✅ MOBILE MENU FIXED: No extra background, using parent's glass effect */}
+      {/* Mobile Menu */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
-            // 'bg-transparent' use kiya hai taaki logo wala bg hi niche tak dikhe
-            className="md:hidden overflow-hidden bg-transparent"
+            className="md:hidden bg-[#111] border-b border-white/10 overflow-hidden"
           >
-            <div className="px-4 pt-4 pb-10 flex flex-col items-center space-y-2">
+            <div className="px-4 pt-4 pb-8 flex flex-col items-center space-y-2">
               {links.map((link) => (
                 <button
                   key={link}
                   onClick={() => {
                     setIsOpen(false);
-                    setCurrentPage("home");
                   }}
-                  className="w-full text-center py-4 text-[18px] font-medium text-neutral-200 hover:text-white transition-all active:bg-white/5 rounded-xl"
+                  className="w-full text-center py-4 text-white text-sm text-[17px] font-medium text-neutral-300 hover:text-white hover:bg-white/5 rounded-xl transition-all cursor-pointer"
                 >
                   {link}
                 </button>
@@ -85,9 +79,8 @@ const Navbar = ({ setCurrentPage }) => {
               <button
                 onClick={() => {
                   setIsOpen(false);
-                  setCurrentPage("contact");
                 }}
-                className="w-full max-w-[320px] mt-6 px-6 py-4 text-center text-base font-bold bg-white text-black rounded-full shadow-2xl active:scale-95 transition-transform"
+                className="w-full max-w-[280px] mt-6 px-6 py-4 text-center text-base font-semibold bg-white text-black rounded-full cursor-pointer hover:bg-neutral-200 transition-colors"
               >
                 Contact us
               </button>
