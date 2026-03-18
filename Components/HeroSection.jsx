@@ -64,10 +64,10 @@ text-center lg:text-left order-0 lg:self-start lg:mt-[15px]"
                       key={index}
                       className="flex items-center gap-2 flex-shrink-0 group"
                     >
-                      <div className="text-white/30 group-hover:text-white/70 transition-colors">
+                      <div className="text-white/60 group-hover:text-white/70 transition-colors">
                         {logo.icon}
                       </div>
-                      <span className="text-lg font-bold text-white/20 group-hover:text-white/60 transition-colors tracking-tight">
+                      <span className="text-lg font-bold text-white/60 group-hover:text-white/60 transition-colors tracking-tight">
                         {logo.name}
                       </span>
                     </div>
