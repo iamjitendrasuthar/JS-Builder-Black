@@ -27,14 +27,14 @@ const ServicesSection = () => {
       description:
         "We design structurally sound, visually striking spaces that blend function with timeless architecture.",
       image:
-        "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&q=80&w=400",
+        "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=800",
       icon: (
         <svg
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"
           strokeWidth="1.5"
-          className="w-10 h-10"
+          className="w-8 h-8 md:w-10 md:h-10"
         >
           <path
             strokeLinecap="round"
@@ -50,14 +50,14 @@ const ServicesSection = () => {
       description:
         "We design functional, expressive interiors that bring purpose into every corner of your space.",
       image:
-        "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&q=80&w=400",
+        "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=800",
       icon: (
         <svg
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"
           strokeWidth="1.5"
-          className="w-10 h-10"
+          className="w-8 h-8 md:w-10 md:h-10"
           transform="rotate(45)"
         >
           <rect x="4" y="4" width="6" height="6" rx="1" />
@@ -73,14 +73,14 @@ const ServicesSection = () => {
       description:
         "We design optimized layouts that maximize flow, function, and the full potential of your available space.",
       image:
-        "https://images.unsplash.com/photo-1600607686527-6fb886090705?auto=format&fit=crop&q=80&w=400",
+        "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&q=80&w=800",
       icon: (
         <svg
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"
           strokeWidth="1.5"
-          className="w-10 h-10"
+          className="w-8 h-8 md:w-10 md:h-10"
         >
           <rect x="3" y="3" width="18" height="18" rx="2" />
           <rect x="7" y="7" width="6" height="4" rx="1" />
@@ -94,14 +94,14 @@ const ServicesSection = () => {
       description:
         "We design beautifully styled spaces with curated decor that enhances character, comfort, and atmosphere.",
       image:
-        "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&q=80&w=400",
+        "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?q=80&w=800",
       icon: (
         <svg
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"
           strokeWidth="1.5"
-          className="w-10 h-10"
+          className="w-8 h-8 md:w-10 md:h-10"
         >
           <path
             strokeLinecap="round"
@@ -117,22 +117,16 @@ const ServicesSection = () => {
     <section className="bg-[#0a0a0a] py-24 lg:py-32 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header Section */}
-        <div className="mb-16 lg:mb-24">
+        <div className="mb-20">
           <FadeIn className="flex flex-col items-center lg:items-start text-center lg:text-left">
             <span className="bg-white/5 border border-white/10 text-neutral-400 px-4 py-1.5 rounded-full text-sm font-medium mb-6 inline-block uppercase tracking-widest">
               Our services
             </span>
-
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-medium text-white leading-tight mb-8 tracking-tight">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-medium text-white tracking-tight leading-tight">
               Services that{" "}
               <span className="text-neutral-500 italic font-serif">shape</span>{" "}
               spaces
             </h2>
-
-            <p className="text-[#a3a3a3] text-lg md:text-xl max-w-2xl leading-relaxed">
-              Building new or upgrading? We craft stylish, inspiring spaces that
-              feel uniquely yours.
-            </p>
           </FadeIn>
         </div>
 
@@ -140,30 +134,32 @@ const ServicesSection = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
           {services.map((service, index) => (
             <FadeIn key={service.id} delay={index * 0.1}>
-              <div className="group relative bg-[#141414] rounded-[40px] p-8 lg:p-12 overflow-hidden flex flex-col items-start min-h-[320px] border border-white/5 transition-all duration-500 hover:bg-[#1a1a1a] hover:border-white/10">
-                <div className="relative z-20 flex-1 flex flex-col items-start max-w-full sm:max-w-[75%]">
-                  <div className="w-16 h-16 rounded-full border border-white/10 flex items-center justify-center mb-8 text-white group-hover:bg-white group-hover:text-black transition-all duration-500">
+              <div className="group relative bg-[#141414] rounded-[40px] p-8 lg:p-12 overflow-hidden flex flex-col items-start min-h-[380px] border border-white/5 transition-all duration-500 hover:bg-[#1a1a1a]">
+                {/* Text Content */}
+                <div className="relative z-20 flex-1 flex flex-col items-start max-w-[75%] lg:max-w-[65%]">
+                  {/* Icon Wrapper (Video style circle) */}
+                  <div className="w-16 h-16 rounded-full bg-[#0a0a0a] border border-white/5 flex items-center justify-center mb-10 text-white transition-all duration-500 group-hover:bg-white group-hover:text-black">
                     {service.icon}
                   </div>
 
                   <h3 className="text-2xl md:text-3xl font-medium text-white mb-4 tracking-tight">
                     {service.title}
                   </h3>
-                  <p className="text-[#A3A3A3] text-base md:text-lg leading-relaxed mb-8">
+                  <p className="text-neutral-400 text-lg leading-relaxed mb-10 font-light">
                     {service.description}
                   </p>
 
-                  <button className="flex items-center gap-2 text-white font-medium hover:gap-4 transition-all duration-300">
-                    Learn more
+                  {/* ✅ Learn More: Restricted hover animation */}
+                  <button className="group/btn flex items-center gap-2 text-white font-medium text-lg transition-all duration-300">
+                    View in detail
                     <svg
+                      className="transition-transform duration-300 group-hover/btn:translate-x-2"
                       width="20"
                       height="20"
                       viewBox="0 0 24 24"
                       fill="none"
                       stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
+                      strokeWidth="2.5"
                     >
                       <line x1="5" y1="12" x2="19" y2="12"></line>
                       <polyline points="12 5 19 12 12 19"></polyline>
@@ -171,12 +167,20 @@ const ServicesSection = () => {
                   </button>
                 </div>
 
-                <div className="absolute -top-10 -right-10 w-[240px] h-[320px] rounded-[40px] overflow-hidden rotate-12 opacity-0 group-hover:opacity-20 group-hover:rotate-6 transition-all duration-700 ease-out pointer-events-none z-10 hidden lg:block">
+                {/* ✅ DYNAMIC IMAGE REVEAL: Default width 0, Hover par slide-in */}
+                <div
+                  className="absolute top-0 right-0 h-full w-0 opacity-0 scale-95 group-hover:w-[45%] group-hover:opacity-100 group-hover:scale-100 transition-all duration-700 ease-[0.21, 0.45, 0.32, 0.9] z-10 pointer-events-none overflow-hidden"
+                  style={{
+                    clipPath: "ellipse(100% 50% at 100% 50%)", // Arch shape reveal
+                  }}
+                >
                   <img
                     src={service.image}
                     alt={service.title}
-                    className="w-full h-full object-cover scale-110 group-hover:scale-100 transition-transform duration-1000"
+                    className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
                   />
+                  {/* 100% Clear View with a subtle shadow to separate from text area */}
+                  <div className="absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-[#141414] to-transparent" />
                 </div>
               </div>
             </FadeIn>
