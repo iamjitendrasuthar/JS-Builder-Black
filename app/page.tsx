@@ -25,7 +25,7 @@ export default function App() {
   }, [currentPage]);
 
   return (
-    <div className="min-h-screen bg-[#141414] text-white font-sans selection:bg-white/20">
+    <div className="min-h-screen bg-[#0a0a0a] text-white font-sans selection:bg-white/20">
       {/* <Navbar currentPage={currentPage} setCurrentPage={setCurrentPage} /> */}
 
       <main>
