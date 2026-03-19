@@ -17,7 +17,6 @@ const Navbar = () => {
           <div
             className="flex-shrink-0 cursor-pointer"
             onClick={() => {
-              setCurrentPage("home");
               setIsOpen(false);
             }}
           >
