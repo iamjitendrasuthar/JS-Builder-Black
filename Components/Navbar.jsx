@@ -30,7 +30,7 @@ const Navbar = () => {
             {links.map((link) => (
               <button
                 key={link}
-                className="text-neutral-300 hover:text-white transition-colors text-[18px] cursor-pointer"
+                className="text-neutral-400 hover:text-white transition-colors text-[18px] cursor-pointer"
               >
                 {link}
               </button>
