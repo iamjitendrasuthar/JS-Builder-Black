@@ -30,7 +30,7 @@ const Navbar = () => {
             {links.map((link) => (
               <button
                 key={link}
-                className="text-neutral-300 hover:text-white transition-colors text-[17px] font-medium"
+                className="text-neutral-300 hover:text-white transition-colors text-[17px] font-medium cursor-pointer"
               >
                 {link}
               </button>
@@ -39,7 +39,7 @@ const Navbar = () => {
 
           {/* CTA */}
           <div className="hidden md:flex">
-            <button className="px-5 py-2 rounded-full bg-white text-black font-medium border border-transparent transition-all duration-300 hover:bg-white/20 hover:text-white hover:border-white/30 text-[16px] shadow-lg">
+            <button className="px-5 py-2 rounded-full bg-white text-black font-medium border border-transparent transition-all duration-300 hover:bg-white/20 hover:text-white hover:border-white/30 text-[16px] shadow-lg cursor-pointer">
               Contact us
             </button>
           </div>
@@ -48,7 +48,7 @@ const Navbar = () => {
           <div className="md:hidden flex items-center">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-white p-2"
+              className="text-white p-2 cursor-pointer"
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -74,7 +74,7 @@ const Navbar = () => {
                   onClick={() => {
                     setIsOpen(false);
                   }}
-                  className="w-full text-center py-4 text-[18px] font-medium text-neutral-200 hover:text-white transition-all active:bg-white/5 rounded-xl"
+                  className="w-full text-center py-4 text-[18px] font-medium text-neutral-200 hover:text-white transition-all active:bg-white/5 rounded-xl cursor-pointer"
                 >
                   {link}
                 </button>
@@ -84,7 +84,7 @@ const Navbar = () => {
                 onClick={() => {
                   setIsOpen(false);
                 }}
-                className="w-full max-w-[320px] mt-6 px-6 py-4 text-center text-base font-bold bg-white text-black rounded-full shadow-2xl active:scale-95 transition-transform"
+                className="w-full max-w-[320px] mt-6 px-6 py-4 text-center text-base font-bold bg-white text-black rounded-full shadow-2xl active:scale-95 transition-transform cursor-pointer"
               >
                 Contact us
               </button>
