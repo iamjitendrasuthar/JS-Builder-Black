@@ -12,7 +12,7 @@ const Navbar = () => {
     // Is container par glass effect hai jo pure menu par apply hoga
     <nav className="fixed w-full z-50 top-0 bg-[#0a0a0a]/50 backdrop-blur-md">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16 lg:h-18">
+        <div className="flex justify-between items-center h-16 lg:h-20">
           {/* Logo */}
           <div
             className="flex-shrink-0 cursor-pointer"
@@ -20,7 +20,7 @@ const Navbar = () => {
               setIsOpen(false);
             }}
           >
-            <span className="text-white text-2xl font-bold tracking-tight">
+            <span className="text-white text-2xl font-medium tracking-tight">
               JSBuilder*
             </span>
           </div>
@@ -30,7 +30,7 @@ const Navbar = () => {
             {links.map((link) => (
               <button
                 key={link}
-                className="text-neutral-300 hover:text-white transition-colors text-[17px] font-medium cursor-pointer"
+                className="text-neutral-300 hover:text-white transition-colors text-[18px] cursor-pointer"
               >
                 {link}
               </button>
@@ -39,7 +39,10 @@ const Navbar = () => {
 
           {/* CTA */}
           <div className="hidden md:flex">
-            <button className="px-5 py-2 rounded-full bg-white text-black font-medium border border-transparent transition-all duration-300 hover:bg-white/20 hover:text-white hover:border-white/30 text-[16px] shadow-lg cursor-pointer">
+            <button
+              className="px-5 py-2.5 text-base 
+    sm:px-5 sm:py-2.5 sm:text-lg rounded-full bg-white text-black border border-transparent transition-all duration-300 hover:bg-white/20 hover:text-white hover:border-white/30 text-[16px] shadow-lg cursor-pointer"
+            >
               Contact us
             </button>
           </div>
@@ -84,7 +87,7 @@ const Navbar = () => {
                 onClick={() => {
                   setIsOpen(false);
                 }}
-                className="w-full max-w-[320px] mt-6 px-6 py-4 text-center text-base font-bold bg-white text-black rounded-full shadow-2xl active:scale-95 transition-transform cursor-pointer"
+                className="w-full max-w-[320px] mt-6 px-6 py-4 text-center text-base font-medium bg-white text-black rounded-full shadow-2xl active:scale-95 transition-transform cursor-pointer"
               >
                 Contact us
               </button>
