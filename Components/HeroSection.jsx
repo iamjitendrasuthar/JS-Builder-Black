@@ -70,24 +70,26 @@ const HeroSection = () => {
               feel uniquely yours.
             </motion.p>
 
-            {/* ✅ FIXED BUTTONS WITH PREMIUM HOVER STATES */}
             <motion.div
               variants={itemVariants}
-              className="flex flex-wrap gap-4 mb-16 justify-center lg:justify-start"
+              className="flex flex-wrap gap-3 sm:gap-4 mb-12 sm:mb-16 justify-center lg:justify-start"
             >
-              {/* Primary Button: Get in touch */}
+              {/* Primary Button */}
               <Link
                 href="/contact"
-                className="group/btn px-7 py-3 rounded-full bg-white text-black font-semibold 
-               border border-white transition-all duration-300 
-               hover:bg-transparent hover:text-white hover:backdrop-blur-md 
-               text-lg shadow-lg cursor-pointer flex items-center gap-2"
+                className="group/btn 
+    px-5 py-2.5 text-base 
+    sm:px-7 sm:py-3 sm:text-lg 
+    rounded-full bg-white text-black font-semibold 
+    border border-white transition-all duration-300 
+    hover:bg-transparent hover:text-white hover:backdrop-blur-md 
+    shadow-lg cursor-pointer flex items-center gap-1.5 sm:gap-2"
               >
                 Get in touch
                 <svg
                   className="transition-transform duration-300 ease-out group-hover/btn:translate-x-1.5"
-                  width="18"
-                  height="18"
+                  width="16"
+                  height="16"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
@@ -100,13 +102,16 @@ const HeroSection = () => {
                 </svg>
               </Link>
 
-              {/* Secondary Button: View services */}
+              {/* Secondary Button */}
               <Link
                 href="/services"
-                className="px-7 py-3 rounded-full bg-white/5 text-white font-medium 
-               border border-white/10 transition-all duration-300 
-               hover:bg-white/20 hover:border-white/30 hover:backdrop-blur-md 
-               text-lg shadow-lg cursor-pointer"
+                className="
+    px-5 py-2.5 text-base 
+    sm:px-7 sm:py-3 sm:text-lg 
+    rounded-full bg-white/5 text-white font-medium 
+    border border-white/10 transition-all duration-300 
+    hover:bg-white/20 hover:border-white/30 hover:backdrop-blur-md 
+    shadow-lg cursor-pointer"
               >
                 View services
               </Link>
