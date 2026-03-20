@@ -4,7 +4,7 @@ import React from "react";
 
 const about = () => {
   return (
-    <div className="min-h-screen text-white font-sans selection:bg-white/20">
+    <div className="min-h-screen text-white font-sans selection:bg-white/20 bg-[#141414] ">
       <ServicesPage />
     </div>
   );

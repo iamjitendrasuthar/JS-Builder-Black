@@ -49,7 +49,7 @@ const services = [
 
 const ServicesPage = () => {
   return (
-    <div className="bg-[#141414] min-h-screen">
+    <div className="min-h-screen">
       {/* --- HERO SECTION --- */}
       <section className="pt-32 pb-16 lg:pt-48 lg:pb-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
