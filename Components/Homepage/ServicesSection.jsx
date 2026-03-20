@@ -175,18 +175,20 @@ const ServicesSection = () => {
 
                 {/* ✅ DYNAMIC IMAGE REVEAL: Default width 0, Hover par slide-in */}
                 <div
-                  className="absolute top-0 right-0 h-full w-0 opacity-0 scale-95 group-hover:w-[45%] group-hover:opacity-100 group-hover:scale-100 transition-all duration-700 ease-[0.21, 0.45, 0.32, 0.9] z-10 pointer-events-none overflow-hidden"
+                  className="absolute top-0 right-0 h-full w-0 lg:group-hover:w-[48%] opacity-0 lg:group-hover:opacity-100 transition-all duration-1000 ease-[0.21,0.45,0.32,0.9] z-10 pointer-events-none overflow-hidden hidden lg:block"
                   style={{
-                    clipPath: "ellipse(100% 50% at 100% 50%)", // Arch shape reveal
+                    clipPath: "ellipse(100% 100% at 100% 50%)",
                   }}
                 >
-                  <img
-                    src={service.image}
-                    alt={service.title}
-                    className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
-                  />
-                  {/* 100% Clear View with a subtle shadow to separate from text area */}
-                  <div className="absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-[#141414] to-transparent" />
+                  <div className="w-full h-full relative overflow-hidden">
+                    <img
+                      src={service.image}
+                      alt={service.title}
+                      className="w-full h-full object-cover grayscale-[60%] group-hover:grayscale-0 scale-[1.3] group-hover:scale-100 transition-all duration-[1.2s] ease-out"
+                    />
+                    {/* Shadow overlay to blend image edge with card bg */}
+                    <div className="absolute inset-y-0 left-0 w-40 bg-gradient-to-r from-[#1a1a1a] to-transparent z-20" />
+                  </div>
                 </div>
               </div>
             </FadeIn>
