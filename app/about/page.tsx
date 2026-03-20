@@ -8,7 +8,7 @@ import VideoHero from "@/Components/About/VideoHero";
 
 const about = () => {
   return (
-    <div className="min-h-screen text-white font-sans selection:bg-white/20">
+    <div className="min-h-screen text-white font-sans selection:bg-white/20 bg-[#141414]">
       <VideoHero />
       <OurStory />
       <MissionSection />
