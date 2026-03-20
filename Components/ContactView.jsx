@@ -148,7 +148,7 @@ const ContactView = () => {
             },
           ].map((item, i) => (
             <FadeIn key={i} delay={0.3 + i * 0.1}>
-              <div className="bg-[#141414] border border-white/5 rounded-[32px] p-10 text-center flex flex-col items-center hover:bg-[#1a1a1a] transition-all group">
+              <div className="bg-[#1f1f1f] border border-white/5 rounded-[32px] p-10 text-center flex flex-col items-center hover:bg-[#1a1a1a] transition-all group">
                 <div className="w-14 h-14 bg-white/5 rounded-2xl flex items-center justify-center border border-white/10 mb-6 text-white group-hover:bg-white group-hover:text-black transition-all duration-500">
                   {React.cloneElement(item.icon, { size: 24 })}
                 </div>

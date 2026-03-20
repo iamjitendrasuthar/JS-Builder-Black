@@ -4,7 +4,7 @@ import ContactView from "@/Components/ContactView";
 
 const Contact = () => {
   return (
-    <div>
+    <div className="bg-[#141414]">
       <ContactView />
     </div>
   );
