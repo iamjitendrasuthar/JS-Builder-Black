@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 const FadeIn = ({ children, delay = 0, className = "" }) => {
   return (
@@ -114,7 +115,7 @@ const ServicesSection = () => {
   ];
 
   return (
-    <section className="bg-[#0a0a0a] py-24 lg:py-32 overflow-hidden">
+    <section className="py-24 lg:py-32 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header Section */}
         <div className="mb-20">
@@ -134,7 +135,7 @@ const ServicesSection = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
           {services.map((service, index) => (
             <FadeIn key={service.id} delay={index * 0.1}>
-              <div className="group relative bg-[#141414] rounded-[40px] p-8 lg:p-12 overflow-hidden flex flex-col items-start min-h-[380px] border border-white/5 transition-all duration-500 hover:bg-[#1a1a1a]">
+              <div className="group relative bg-[#1f1f1f] rounded-[40px] p-8 lg:p-12 overflow-hidden flex flex-col items-start min-h-[380px] border border-white/5 transition-all duration-500 hover:bg-[#1a1a1a]">
                 {/* Text Content */}
                 <div className="relative z-20 flex-1 flex flex-col items-start max-w-[75%] lg:max-w-[65%]">
                   {/* Icon Wrapper (Video style circle) */}
@@ -149,22 +150,27 @@ const ServicesSection = () => {
                     {service.description}
                   </p>
 
-                  {/* ✅ Learn More: Restricted hover animation */}
-                  <button className="group/btn flex items-center gap-2 text-white font-medium text-lg transition-all duration-300">
-                    View in detail
+                  {/* ✅ BUTTON WITH HOVER ARROW ANIMATION */}
+                  <Link
+                    href="/services"
+                    className="group/btn px-8 py-3.5 rounded-full border border-white/10 text-white font-medium hover:bg-white hover:text-black transition-all duration-300 inline-flex items-center gap-2 cursor-pointer overflow-hidden"
+                  >
+                    View in details
                     <svg
-                      className="transition-transform duration-300 group-hover/btn:translate-x-2"
-                      width="20"
-                      height="20"
+                      className="transition-transform duration-300 ease-out group-hover/btn:translate-x-1.5"
+                      width="18"
+                      height="18"
                       viewBox="0 0 24 24"
                       fill="none"
                       stroke="currentColor"
                       strokeWidth="2.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                     >
                       <line x1="5" y1="12" x2="19" y2="12"></line>
                       <polyline points="12 5 19 12 12 19"></polyline>
                     </svg>
-                  </button>
+                  </Link>
                 </div>
 
                 {/* ✅ DYNAMIC IMAGE REVEAL: Default width 0, Hover par slide-in */}

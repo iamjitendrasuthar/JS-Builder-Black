@@ -21,7 +21,7 @@ const TeamSection = () => {
   ];
 
   return (
-    <div className="bg-[#0a0a0a] text-white font-sans selection:bg-white selection:text-black">
+    <div className="text-white font-sans selection:bg-white selection:text-black">
       <section className="py-24 lg:py-32 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* ✅ Header Animation: Scroll par trigger hoga */}
         <motion.div
@@ -62,7 +62,7 @@ const TeamSection = () => {
                 delay: index * 0.1, // Stagger effect: ek ke baad ek aayenge
                 ease: [0.21, 0.45, 0.32, 0.9],
               }}
-              className="group bg-[#141414] rounded-[40px] p-6 border border-white/5 transition-all duration-500 hover:border-white/10 hover:bg-[#1a1a1a]"
+              className="group bg-[#1f1f1f] rounded-[40px] p-6 border border-white/5 transition-all duration-500 hover:border-white/10 hover:bg-[#1a1a1a]"
             >
               {/* Image Container */}
               <div className="relative mb-8 overflow-hidden rounded-t-[140px] rounded-b-[40px] aspect-[4/5] bg-[#1a1a1a] border border-white/5">

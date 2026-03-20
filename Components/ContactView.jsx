@@ -25,7 +25,7 @@ const FadeIn = ({ children, delay = 0, className = "" }) => {
 
 const ContactView = () => {
   return (
-    <div className="pt-32 pb-24 min-h-screen bg-[#0a0a0a] selection:bg-white selection:text-black">
+    <div className="pt-32 pb-24 min-h-screen selection:bg-white selection:text-black">
       {/* ✅ HERO MATCHED WIDTH: max-w-7xl */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header Section */}
@@ -48,7 +48,7 @@ const ContactView = () => {
 
         {/* Form Section */}
         <FadeIn delay={0.2}>
-          <form className="bg-[#141414] border border-white/5 rounded-[40px] p-8 md:p-16 shadow-2xl mb-12 lg:mb-20">
+          <form className="bg-[#1f1f1f] border border-white/5 rounded-[40px] p-8 md:p-16 shadow-2xl mb-12 lg:mb-20">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
               <div className="flex flex-col gap-3">
                 <label className="text-neutral-400 text-sm font-medium uppercase tracking-widest">
@@ -89,11 +89,11 @@ const ContactView = () => {
                 </label>
                 <div className="relative">
                   <select className="bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-white focus:outline-none focus:border-white/30 focus:bg-white/[0.08] transition-all w-full appearance-none cursor-pointer">
-                    <option className="bg-[#141414]">Interior design</option>
-                    <option className="bg-[#141414]">
+                    <option className="bg-[#1f1f1f]">Interior design</option>
+                    <option className="bg-[#1f1f1f]">
                       Architectural design
                     </option>
-                    <option className="bg-[#141414]">Landscape design</option>
+                    <option className="bg-[#1f1f1f]">Landscape design</option>
                   </select>
                   <ChevronDown
                     className="absolute right-6 top-1/2 -translate-y-1/2 text-neutral-500 pointer-events-none"

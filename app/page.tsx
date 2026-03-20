@@ -18,7 +18,7 @@ import Contact from "./contact/page";
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-[#0a0a0a] text-white font-sans selection:bg-white/20">
+    <div className="min-h-screen bg-[#141414] text-white font-sans selection:bg-white/20">
       <main>
         <HeroSection />
         <LogoTicker />
@@ -29,7 +29,6 @@ export default function App() {
         <TeamSection />
         <FAQ />
         <CTASection />
-        <Contact />
       </main>
     </div>
   );

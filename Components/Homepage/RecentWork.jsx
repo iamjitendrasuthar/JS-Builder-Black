@@ -41,7 +41,7 @@ const RecentWork = () => {
   ];
 
   return (
-    <section className="bg-[#0a0a0a] py-24 lg:py-32 overflow-hidden">
+    <section className=" py-24 lg:py-32 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header Section */}
         <div className="mb-20">
@@ -66,7 +66,7 @@ const RecentWork = () => {
           {projects.map((proj, idx) => (
             <FadeIn key={idx} delay={idx * 0.1}>
               <div
-                className={`group bg-[#141414] rounded-[40px] p-6 md:p-10 lg:p-16 flex flex-col ${
+                className={`group bg-[#1f1f1f] rounded-[40px] p-6 md:p-10 lg:p-16 flex flex-col ${
                   idx % 2 !== 0 ? "lg:flex-row-reverse" : "lg:flex-row"
                 } items-center gap-12 lg:gap-24 border border-white/5 transition-all duration-500 hover:border-white/10`}
               >

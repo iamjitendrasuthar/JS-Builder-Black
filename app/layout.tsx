@@ -18,7 +18,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="overflow-x-hidden">
-      <body className="overflow-x-hidden">
+      <body className="overflow-x-hidden bg-[#141414]" >
         <Navbar />
         <main className="min-h-screen">{children}</main>
         {/* <WhatsAppWidget /> */}

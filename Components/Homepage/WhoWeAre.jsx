@@ -59,7 +59,7 @@ const WhoWeAre = () => {
   ];
 
   return (
-    <section className="bg-[#0a0a0a] py-24 lg:py-32 overflow-hidden">
+    <section className="py-24 lg:py-32 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Top Content Area */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-20">
@@ -107,7 +107,7 @@ const WhoWeAre = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           <FadeIn
             delay={0.3}
-            className="bg-[#141414] rounded-[40px] p-8 md:p-14 relative overflow-hidden flex flex-col justify-between min-h-[450px] border border-white/5"
+            className="bg-[#1f1f1f] rounded-[40px] p-8 md:p-14 relative overflow-hidden flex flex-col justify-between min-h-[450px] border border-white/5"
           >
             <div className="relative z-10">
               <h3 className="text-white text-2xl md:text-3xl leading-snug mb-8 max-w-sm font-medium">
@@ -140,7 +140,7 @@ const WhoWeAre = () => {
                 ].map((img, idx) => (
                   <div
                     key={idx}
-                    className={`w-16 h-20 md:w-20 md:h-28 rounded-t-full border-4 border-[#141414] overflow-hidden shadow-2xl ${idx === 1 ? "z-10 -translate-y-4" : "z-0"}`}
+                    className={`w-16 h-20 md:w-20 md:h-28 rounded-t-full border-4 border-[#1f1f1f] overflow-hidden shadow-2xl ${idx === 1 ? "z-10 -translate-y-4" : "z-0"}`}
                   >
                     <img
                       src={img}

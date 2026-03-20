@@ -25,7 +25,7 @@ const FadeIn = ({ children, delay = 0, className = "" }) => {
 
 const Footer = () => {
   return (
-    <footer className="bg-[#0a0a0a] border-t border-white/5 pt-24 pb-12 overflow-hidden">
+    <footer className="border-t border-white/5 pt-24 pb-12 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* ✅ Animated Main Content */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 mb-20">

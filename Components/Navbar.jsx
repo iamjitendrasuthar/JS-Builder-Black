@@ -15,7 +15,7 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="fixed w-full z-50 top-0 bg-[#0a0a0a]/50 backdrop-blur-md">
+    <nav className="fixed w-full z-50 top-0 bg-[#141414]/50 backdrop-blur-md">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16 lg:h-20">
           {/* Logo */}
@@ -46,7 +46,7 @@ const Navbar = () => {
           <div className="hidden md:flex">
             <Link
               href="/contact"
-              className="px-5 py-2.5 rounded-full bg-white text-black border border-transparent transition-all duration-300 hover:bg-white/20 hover:text-white hover:border-white/30 text-[16px] shadow-lg"
+              className="px-5 py-2.5 rounded-full bg-white text-black border border-transparent transition-all duration-300 hover:bg-white/20 hover:text-white hover:border-white/30 text-[16px] shadow-lg font-medium"
             >
               Contact us
             </Link>

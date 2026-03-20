@@ -3,7 +3,7 @@ import FadeIn from "@/utils/common";
 import { Pause } from "lucide-react";
 
 const MissionSection = () => (
-  <section className="py-20 lg:py-28 bg-[#0a0a0a]">
+  <section className="py-20 lg:py-28">
     {/* ✅ SAME CONTAINER SYSTEM */}
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20 items-center">
@@ -52,8 +52,6 @@ const MissionSection = () => (
               alt="Mission Detail"
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
             />
-
-            <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
 
             <div className="absolute bottom-8 right-8 w-14 h-14 rounded-2xl bg-white/5 backdrop-blur-2xl border border-white/10 flex items-center justify-center text-white">
               <Pause size={20} fill="currentColor" />

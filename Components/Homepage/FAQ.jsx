@@ -26,7 +26,7 @@ const FAQ = () => {
   ];
 
   return (
-    <section className="py-24 lg:py-32 bg-[#0A0A0A]">
+    <section className="py-24 lg:py-32">
       {/* ✅ HERO MATCHED WIDTH: max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
@@ -57,7 +57,7 @@ const FAQ = () => {
                   className={`group rounded-[32px] border transition-all duration-500 cursor-pointer overflow-hidden ${
                     openIdx === i
                       ? "bg-[#141414] border-white/20"
-                      : "bg-[#111] border-white/5 hover:border-white/10"
+                      : "bg-[#1f1f1f] border-white/5 hover:border-white/10"
                   }`}
                   onClick={() => setOpenIdx(openIdx === i ? null : i)}
                 >

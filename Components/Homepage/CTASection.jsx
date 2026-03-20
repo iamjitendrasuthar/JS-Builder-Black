@@ -23,7 +23,7 @@ const FadeIn = ({ children, delay = 0, className = "" }) => {
 
 const CTASection = () => {
   return (
-    <section className="py-24 lg:py-32 bg-[#0a0a0a]">
+    <section className="py-24 lg:py-32">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <FadeIn>
           <div className="relative rounded-[40px] overflow-hidden border border-white/10 shadow-2xl min-h-[500px] lg:min-h-[600px] flex items-center justify-center">
@@ -41,7 +41,7 @@ const CTASection = () => {
             <div className="relative z-10 w-full max-w-4xl px-6 text-center">
               <div
                 className="
-                  bg-[#141414]/60 backdrop-blur-xl rounded-[32px] 
+                  bg-[#1f1f1f]/60 backdrop-blur-xl rounded-[32px] 
                   border border-white/10
                   px-6 py-12
                   sm:px-12 sm:py-16
