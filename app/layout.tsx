@@ -5,10 +5,10 @@ import Footer from "@/Components/Footer";
 import WhatsAppWidget from "@/utils/WhatsAppWidget";
 
 export const metadata = {
-  title: "Js Builder",
+  title: "JS Builder",
   description: "Premium Interior Design for Modern Homes",
   icons: {
-    icon: "https://cdn-icons-png.flaticon.com/128/5801/5801396.png",
+    icon: "https://framerusercontent.com/sites/icons/default-favicon-dark.v1.png",
   },
 };
 
