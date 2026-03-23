@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 /**
  * ✅ FIXED FADE-IN: Scroll triggered animation
@@ -67,13 +68,15 @@ const CTASection = () => {
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                  <button
-                    className="w-full sm:w-auto px-10 py-5 rounded-full bg-transparent text-white font-medium 
+                  <Link href={`/contact`}>
+                    <button
+                      className="w-full sm:w-auto px-10 py-5 rounded-full bg-transparent text-white font-medium 
                     border border-white/20 backdrop-blur-md transition-all duration-300 
                     hover:bg-white/10 text-lg cursor-pointer"
-                  >
-                    Contact Us
-                  </button>
+                    >
+                      Contact Us
+                    </button>
+                  </Link>
                 </div>
               </div>
             </div>

@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 /**
  * ✅ CONSISTENT SCROLL ANIMATION
@@ -38,23 +39,25 @@ const Footer = () => {
               Thoughtful design for everyday living, crafted with comfort and
               style in mind. We turn visions into reality.
             </p>
-            <button className="group/btn px-8 py-3.5 rounded-full border border-white/10 text-white font-medium hover:bg-white hover:text-black transition-all duration-300 inline-flex items-center gap-2 cursor-pointer">
-              Get in touch
-              <svg
-                className="transition-transform duration-300 ease-out group-hover/btn:translate-x-1.5"
-                width="18"
-                height="18"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="12 5 19 12 12 19"></polyline>
-              </svg>
-            </button>
+            <Link href={`/contact`}>
+              <button className="group/btn px-8 py-3.5 rounded-full border border-white/10 text-white font-medium hover:bg-white hover:text-black transition-all duration-300 inline-flex items-center gap-2 cursor-pointer">
+                Get in touch
+                <svg
+                  className="transition-transform duration-300 ease-out group-hover/btn:translate-x-1.5"
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </button>
+            </Link>
           </FadeIn>
 
           {/* Quick Links */}
@@ -102,13 +105,13 @@ const Footer = () => {
         >
           <div className="text-neutral-600 flex items-center gap-2">
             <span>Copyright © 2026</span>
-            <span className="w-1 h-1 rounded-full bg-neutral-800" />
-            <span>All Rights Reserved</span>
+            <span className="w-1 h-1 rounded-full bg-neutral-800 font-medium" />
+            <span className="font-medium">All Rights Reserved</span>
           </div>
 
           <div className="text-neutral-600">
             Designed & Developed by{" "}
-            <span className="text-neutral-400 hover:text-white transition-colors cursor-default">
+            <span className="text-neutral-400  hover:text-white transition-colors cursor-default">
               Jitendra
             </span>
           </div>
