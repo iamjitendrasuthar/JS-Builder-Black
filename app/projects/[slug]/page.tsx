@@ -41,7 +41,7 @@ const ProjectDetail = () => {
         {" "}
         <button
           onClick={() => router.back()}
-          className="absolute top-[calc(env(safe-area-inset-top)-22rem)] left-4 z-50 flex items-center justify-center w-10 h-10 rounded-full bg-black/40 backdrop-blur-lg border border-white/10 hover:bg-white hover:text-black transition-all sm:hidden"
+          className="absolute top-[calc(env(safe-area-inset-top)-20rem)] left-4 z-50 flex items-center justify-center w-10 h-10 rounded-full bg-black/40 backdrop-blur-lg border border-white/10 hover:bg-white hover:text-black transition-all sm:hidden"
         >
           <ArrowLeft size={18} />
         </button>
