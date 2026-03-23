@@ -8,10 +8,10 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const links = [
+    { name: "Home", path: "/" },
     { name: "About", path: "/about" },
     { name: "Services", path: "/services" },
     { name: "Projects", path: "/projects" },
-    { name: "Testimonials", path: "/testimonials" },
   ];
 
   return (
