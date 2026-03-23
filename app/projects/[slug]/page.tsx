@@ -29,7 +29,7 @@ const ProjectDetail = () => {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full relative">
             <button
               onClick={() => router.back()}
-              className="hidden sm:flex absolute top-[env(safe-area-inset-top,5rem)] sm:top-32 left-4 sm:left-6 lg:left-8 z-50 items-center gap-2 text-sm uppercase tracking-widest bg-black/40 backdrop-blur-lg border border-white/10 px-4 py-2 rounded-full hover:bg-white hover:text-black transition-all"
+              className="hidden sm:flex absolute top-[env(safe-area-inset-top,5rem)] sm:top-32 left-4 sm:left-6 lg:left-8 z-50 items-center gap-2 text-sm uppercase tracking-widest bg-black/40 backdrop-blur-lg border border-white/10 px-4 py-2 rounded-full hover:bg-white hover:text-black transition-all cursor-pointer"
             >
               <ArrowLeft size={16} /> Back
             </button>
