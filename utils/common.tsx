@@ -1,19 +1,5 @@
 import { motion, AnimatePresence } from "framer-motion";
-import {
-  ArrowRight,
-  Menu,
-  X,
-  CheckCircle2,
-  ChevronDown,
-  Instagram,
-  Linkedin,
-  Facebook,
-  Twitter,
-  Mail,
-  Phone,
-  MapPin,
-  Star,
-} from "lucide-react";
+
 export default function FadeIn({
   children,
   delay = 0,
