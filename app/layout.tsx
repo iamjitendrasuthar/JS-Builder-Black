@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "@/Components/Navbar";
 import Footer from "@/Components/Footer";
+import WhatsAppWidget from "@/utils/WhatsAppWidget";
 
 export const metadata = {
   title: "Js Builder",
@@ -18,10 +19,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="overflow-x-hidden">
-      <body className="overflow-x-hidden bg-[#141414]" >
+      <body className="overflow-x-hidden bg-[#141414]">
         <Navbar />
-        <main className="min-h-screen">{children}</main>
-        {/* <WhatsAppWidget /> */}
+        <main className="min-h-screen">
+          {children} <WhatsAppWidget />
+        </main>
         <Footer />
       </body>
     </html>
