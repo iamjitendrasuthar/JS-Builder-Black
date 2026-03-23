@@ -20,15 +20,37 @@ const TeamSection = () => {
     },
   ];
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 40 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.8,
+        ease: [0.21, 0.45, 0.32, 0.9],
+      },
+    },
+  };
+
   return (
     <div className="text-white font-sans selection:bg-white selection:text-black">
       <section className="py-24 lg:py-32 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* ✅ Header Animation: Scroll par trigger hoga */}
+        {/* Header Animation */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.8 }}
+          viewport={{ once: true, amount: 0.3 }} // Jab 30% dikhega tab chalega
+          transition={{ duration: 1, ease: "easeOut" }}
           className="text-center mb-20 space-y-6"
         >
           <div className="flex justify-center">
@@ -49,19 +71,18 @@ const TeamSection = () => {
           </p>
         </motion.div>
 
-        {/* Team Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {/* Team Grid with Staggering */}
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
+          className="grid grid-cols-1 md:grid-cols-3 gap-8"
+        >
           {team.map((member, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{
-                duration: 0.8,
-                delay: index * 0.1, // Stagger effect: ek ke baad ek aayenge
-                ease: [0.21, 0.45, 0.32, 0.9],
-              }}
+              variants={itemVariants}
               className="group bg-[#1f1f1f] rounded-[40px] p-6 border border-white/5 transition-all duration-500 hover:border-white/10 hover:bg-[#1a1a1a]"
             >
               {/* Image Container */}
@@ -113,7 +134,7 @@ const TeamSection = () => {
               </div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </section>
     </div>
   );
