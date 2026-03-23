@@ -66,7 +66,7 @@ const RecentWork = () => {
           {projects.map((proj, idx) => (
             <FadeIn key={idx} delay={idx * 0.1}>
               <div
-                className={`group bg-[#1f1f1f] rounded-[40px] p-6 md:p-10 lg:p-16 flex flex-col ${
+                className={`group bg-[#1f1f1f] rounded-[40px] p-6 md:p-10 lg:p-10 flex flex-col ${
                   idx % 2 !== 0 ? "lg:flex-row-reverse" : "lg:flex-row"
                 } items-center gap-12 lg:gap-24 border border-white/5 transition-all duration-500 hover:border-white/10`}
               >
@@ -139,7 +139,8 @@ const RecentWork = () => {
                 </div>
 
                 {/* Image Content */}
-                <div className="w-full lg:w-1/2">
+                <div className="w-full lg:w-[35%] mx-auto">
+                  {" "}
                   <div className="relative aspect-[4/5] lg:aspect-square overflow-hidden rounded-t-[200px] rounded-b-[40px] border border-white/10 shadow-2xl transition-all duration-500">
                     <img
                       src={proj.img}
