@@ -49,114 +49,118 @@ const services = [
 
 const ServicesPage = () => {
   return (
-    <div className="min-h-screen">
-      {/* --- HERO SECTION --- */}
-      <section className="pt-32 pb-16 lg:pt-48 lg:pb-24">
+    <div className="min-h-screen bg-[#141414] text-white">
+      <section className="py-20 lg:py-28 overflow-hidden pt-32 pb-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <FadeIn>
-            <span className="bg-white/5 border border-white/10 text-neutral-400 px-4 py-1.5 rounded-full text-sm font-medium uppercase tracking-widest mb-8 inline-block">
-              Expertise & Solutions
-            </span>
-          </FadeIn>
-
-          <FadeIn delay={0.1}>
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-medium text-white mb-8 tracking-tighter leading-[0.95]">
-              Services that <br />
-              <span className="text-neutral-500 italic font-serif">
-                spaces
-              </span>{" "}
-              shape life.
-            </h1>
-          </FadeIn>
-
-          <FadeIn delay={0.2}>
-            <p className="text-neutral-400 text-lg md:text-xl max-w-2xl font-light leading-relaxed border-l border-white/10 pl-8">
-              Js Interiors delivers holistic design through a lens of structural
-              clarity and emotional resonance.
-            </p>
-          </FadeIn>
-        </div>
-      </section>
-
-      {/* --- SERVICES LIST --- */}
-      <section className="pb-32">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-          {services.map((service, index) => (
-            <FadeIn key={service.id} delay={index * 0.1}>
-              <div className="group relative bg-[#1f1f1f] rounded-[40px] md:rounded-[60px] p-8 md:p-16 overflow-hidden flex flex-col justify-center min-h-[500px] border border-white/5 transition-all duration-700 hover:bg-[#1a1a1a]">
-                {/* Text Content Area */}
-                <div className="relative z-20 w-full lg:w-[55%] space-y-8">
-                  <div className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-[#0a0a0a] border border-white/5 flex items-center justify-center text-white transition-all duration-500 group-hover:bg-white group-hover:text-black">
-                    {service.icon}
-                  </div>
-
-                  <div className="space-y-4">
-                    <h2 className="text-3xl md:text-5xl font-medium tracking-tight text-white leading-tight">
-                      {service.title}
-                    </h2>
-                    <p className="text-neutral-400 text-lg md:text-xl leading-relaxed font-light">
-                      {service.description}
-                    </p>
-                  </div>
-
-                  {/* Feature Pills */}
-                  <div className="flex flex-wrap gap-3">
-                    {service.features.map((feat, i) => (
-                      <span
-                        key={i}
-                        className="flex items-center gap-2 text-[10px] uppercase tracking-widest font-bold text-neutral-400 bg-white/5 px-4 py-2 rounded-full border border-white/10"
-                      >
-                        <CheckCircle2 size={12} className="text-blue-500" />
-                        {feat}
-                      </span>
-                    ))}
-                  </div>
-
-                  {/* Button */}
-                  <div className="pt-4">
-                    <Link
-                      href="/contact"
-                      className="group/btn px-8 py-4 rounded-full border border-white/10 text-white font-medium hover:bg-white hover:text-black transition-all duration-300 inline-flex items-center gap-3"
-                    >
-                      Start your journey
-                      <svg
-                        className="transition-transform duration-300 ease-out group-hover/btn:translate-x-1.5"
-                        width="18"
-                        height="18"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2.5"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      >
-                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                        <polyline points="12 5 19 12 12 19"></polyline>
-                      </svg>
-                    </Link>
-                  </div>
-                </div>
-
-                {/* --- FIXED IMAGE REVEAL --- */}
-                <div
-                  className="absolute top-0 right-0 h-full w-0 lg:group-hover:w-[48%] opacity-0 lg:group-hover:opacity-100 transition-all duration-1000 ease-[0.21,0.45,0.32,0.9] z-10 pointer-events-none overflow-hidden hidden lg:block"
-                  style={{
-                    clipPath: "ellipse(100% 100% at 100% 50%)",
-                  }}
-                >
-                  <div className="w-full h-full relative overflow-hidden">
-                    <img
-                      src={service.image}
-                      alt={service.title}
-                      className="w-full h-full object-cover grayscale-[60%] group-hover:grayscale-0 scale-[1.3] group-hover:scale-100 transition-all duration-[1.2s] ease-out"
-                    />
-                    {/* Shadow overlay to blend image edge with card bg */}
-                    <div className="absolute inset-y-0 left-0 w-40 bg-gradient-to-r from-[#1a1a1a] to-transparent z-20" />
-                  </div>
-                </div>
-              </div>
+          <div className="text-center mb-14">
+            <FadeIn>
+              <span className="bg-white/5 border border-white/10 text-neutral-400 px-4 py-1.5 rounded-full text-sm font-medium uppercase tracking-widest mb-6 inline-block">
+                Expertise & Solutions
+              </span>
             </FadeIn>
-          ))}
+
+            <FadeIn delay={0.1}>
+              <h1 className="text-4xl md:text-6xl lg:text-7xl font-medium text-white mb-6 tracking-tight leading-[1.1]">
+                Services that{" "}
+                <span className="text-neutral-500 italic font-serif">
+                  spaces
+                </span>{" "}
+                <br className="hidden md:block" />
+                shape life.
+              </h1>
+            </FadeIn>
+
+            <FadeIn delay={0.2}>
+              <p className="text-neutral-400 text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
+                Js Interiors delivers holistic design through a lens of
+                structural clarity and emotional resonance, thoughtfully crafted
+                for you.
+              </p>
+            </FadeIn>
+          </div>
+
+          {/* --- SERVICES LIST --- */}
+          <div className="space-y-8 mt-16">
+            {services.map((service, index) => (
+              <FadeIn key={service.id} delay={index * 0.1}>
+                <div className="group relative bg-[#1f1f1f] rounded-[30px] md:rounded-[50px] p-8 md:p-16 overflow-hidden flex flex-col justify-center min-h-[450px] md:min-h-[500px] border border-white/5 transition-all duration-700 hover:bg-[#1a1a1a]">
+                  {/* Text Content Area */}
+                  <div className="relative z-20 w-full lg:w-[55%] space-y-8">
+                    <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-[#0a0a0a] border border-white/5 flex items-center justify-center text-white transition-all duration-500 group-hover:bg-white group-hover:text-black">
+                      {service.icon}
+                    </div>
+
+                    <div className="space-y-4">
+                      <h2 className="text-3xl md:text-5xl font-medium tracking-tight text-white leading-tight">
+                        {service.title}
+                      </h2>
+                      <p className="text-neutral-400 text-base md:text-lg leading-relaxed font-light">
+                        {service.description}
+                      </p>
+                    </div>
+
+                    {/* Feature Pills */}
+                    <div className="flex flex-wrap gap-2 md:gap-3">
+                      {service.features.map((feat, i) => (
+                        <span
+                          key={i}
+                          className="flex items-center gap-2 text-[9px] md:text-[10px] uppercase tracking-widest font-bold text-neutral-400 bg-white/5 px-3 py-2 rounded-full border border-white/10"
+                        >
+                          <CheckCircle2
+                            size={12}
+                            className="text-neutral-500 group-hover:text-white transition-colors"
+                          />
+                          {feat}
+                        </span>
+                      ))}
+                    </div>
+
+                    {/* Button */}
+                    <div className="pt-4">
+                      <Link
+                        href="/contact"
+                        className="group/btn px-6 py-3 md:px-8 md:py-4 rounded-full border border-white/10 text-white text-sm md:text-base font-medium hover:bg-white hover:text-black transition-all duration-300 inline-flex items-center gap-3"
+                      >
+                        Start your journey
+                        <svg
+                          className="transition-transform duration-300 ease-out group-hover/btn:translate-x-1.5"
+                          width="18"
+                          height="18"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2.5"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        >
+                          <line x1="5" y1="12" x2="19" y2="12"></line>
+                          <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                      </Link>
+                    </div>
+                  </div>
+
+                  {/* --- FIXED IMAGE REVEAL (Desktop Only) --- */}
+                  <div
+                    className="absolute top-0 right-0 h-full w-0 lg:group-hover:w-[50%] opacity-0 lg:group-hover:opacity-100 transition-all duration-1000 ease-[0.21,0.45,0.32,0.9] z-10 pointer-events-none overflow-hidden hidden lg:block"
+                    style={{
+                      clipPath: "polygon(15% 0, 100% 0, 100% 100%, 0% 100%)",
+                    }}
+                  >
+                    <div className="w-full h-full relative overflow-hidden">
+                      <img
+                        src={service.image}
+                        alt={service.title}
+                        className="w-full h-full object-cover grayscale-[40%] group-hover:grayscale-0 scale-[1.2] group-hover:scale-100 transition-all duration-[1.2s] ease-out"
+                      />
+                      {/* Gradient to smooth the transition on the left side of the image */}
+                      <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[#1a1a1a] to-transparent z-20" />
+                    </div>
+                  </div>
+                </div>
+              </FadeIn>
+            ))}
+          </div>
         </div>
       </section>
     </div>
