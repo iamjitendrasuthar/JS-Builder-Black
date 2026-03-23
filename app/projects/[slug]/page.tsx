@@ -37,11 +37,11 @@ const ProjectDetail = () => {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-32 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-32 relative z-30">
         {" "}
         <button
           onClick={() => router.back()}
-          className="absolute top-[calc(env(safe-area-inset-top)-20rem)] left-4 z-50 flex items-center gap-2 text-sm uppercase tracking-widest bg-black/40 backdrop-blur-lg border border-white/10 px-4 py-2 rounded-full hover:bg-white hover:text-black transition-all sm:hidden"
+          className="absolute top-[calc(env(safe-area-inset-top)-20rem)] left-4 z-50 flex items-center gap-2 text-sm uppercase tracking-widest bg-black/40 backdrop-blur-lg border border-white/10 px-4 py-2 rounded-full hover:bg-white hover:text-black transition-all sm:hidden cursor-pointer"
         >
           <ArrowLeft size={16} /> Back
         </button>
