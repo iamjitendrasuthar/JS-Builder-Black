@@ -3,6 +3,7 @@ import "./globals.css";
 import Navbar from "@/Components/Navbar";
 import Footer from "@/Components/Footer";
 import WhatsAppWidget from "@/utils/WhatsAppWidget";
+import { Analytics } from '@vercel/analytics/next';
 
 export const metadata = {
   title: "JS Builder",
@@ -25,6 +26,7 @@ export default function RootLayout({
           {children} <WhatsAppWidget />
         </main>
         <Footer />
+        <Analytics />
       </body>
     </html>
   );
